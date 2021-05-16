@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import Encoder
+from simple_pid import PID
 import time
 
 
@@ -50,26 +51,29 @@ GPIO.setmode(GPIO.BCM)
 m1 = Motor(24, 8, 25, 17, 27)
 m2 = Motor(6, 7, 5, 22, 23)
 
+pid1 = PID(4, 3, 0, setpoint=180)
+pid1.output_limits = (0, 100)
+pid2 = PID(4, 3, 0, setpoint=180)
+pid2.output_limits = (0, 100)
+
 try:
-    for i in range(0, 100 + 1):
-        if i % 10 == 0:
-            print("PWM: {}".format(i))
-            print("Encoder pos: {}".format(m1.encoder.read()))
-            print("Encoder pos: {}".format(m2.encoder.read()))
-        m1.rotate(False, i)
-        m2.rotate(False, i)
-        time.sleep(0.05)
+    while True:
+        control1 = pid1(m1.encoder.read())
+        oldPos1 = m1.encoder.pos
+        m1.encoder.pos = 0
+        m1.rotate(True, control1)
 
-    for i in range(0, 100 + 1):
-        if i % 10 == 0:
-            print("PWM: {}".format(i))
-            print("Encoder pos: {}".format(m1.encoder.read()))
-            print("Encoder pos: {}".format(m2.encoder.read()))
-        m1.rotate(True, i)
-        m2.rotate(True, i)
-        time.sleep(0.05)
+        control2 = pid2(m2.encoder.read())
+        oldPos2 = m2.encoder.pos
+        m2.encoder.pos = 0
+        m2.rotate(True, control2)
 
-    stop_all()
+        print("PWM1: {}".format(control1))
+        print("PWM2: {}".format(control2))
+        print("Encoder pos1: {}".format(oldPos1))
+        print("Encoder pos2: {}".format(oldPos2))
+
+        time.sleep(0.05)
 
 except KeyboardInterrupt:
     # quit
