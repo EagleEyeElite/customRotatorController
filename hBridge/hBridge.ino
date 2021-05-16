@@ -1,115 +1,60 @@
-https://cdn.instructables.com/ORIG/FCN/YABW/IHNTEND4/FCNYABWIHNTEND4.pdf
-https://create.arduino.cc/projecthub/ryanchan/how-to-use-the-l298n-motor-driver-b124c5
+/*
+ * HBridge design
+ * 
+ * cicruit design: http://www.learningaboutelectronics.com/Articles/H-bridge-circuit-with-transistors.php
+ */
 
-int motor1pin1 = 2;
-int motor1pin2 = 3;
-int speedPin1 = 9;
+// pinout Arduino (all PWM)
+#define H1_1 3
+#define H1_2 5
+#define H2_1 6
+#define H2_2 9
 
-int motor2pin1 = 4;
-int motor2pin2 = 5;
-int speedPin2 = 10;
-
-//void Move ( Dir direction , int distance );
-
-
-enum Dir_m {
-  CW,
-  ACW
-};
-
-enum Dir {
-   up,
-   down,
-   cw,
-   acw
-};
-
+// bridge[slectBridge][selectPin]
+int bridge[2][2] = {{H1_1, H1_2}, {H2_1, H2_2}};
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(motor1pin1, OUTPUT);
-  pinMode(motor1pin2, OUTPUT);
-  pinMode(speedPin1, OUTPUT);
-  pinMode(motor2pin1, OUTPUT);
-  pinMode(motor2pin2, OUTPUT);
-  pinMode(speedPin2, OUTPUT);
+  // If not set as Output, the NPN Transistor smokes up,
+  // figgured that out by try and error
+  pinMode(bridge[0][0], OUTPUT);
+  pinMode(bridge[0][1], OUTPUT);
+  pinMode(bridge[1][0], OUTPUT);
+  pinMode(bridge[1][1], OUTPUT);
+
+  digitalWrite(bridge[0][0], LOW);
+  digitalWrite(bridge[0][1], LOW);
+  digitalWrite(bridge[1][0], LOW);
+  digitalWrite(bridge[1][1], LOW);
 }
 
-void stopAll() {
-  analogWrite(speedPin1, 0);
-  digitalWrite(motor1pin1, LOW);
-  digitalWrite(motor1pin2, LOW);
-  analogWrite(speedPin2, 0);
-  digitalWrite(motor2pin1, LOW);
-  digitalWrite(motor2pin2, LOW);
+// select brigde, select dir
+void dir(int b, bool direction) {
+  // both may never on at the same time
+  digitalWrite(bridge[b][0], LOW);
+  digitalWrite(bridge[b][1], LOW);
+
+  delay(100);
+  if (direction)
+    digitalWrite(bridge[b][0], HIGH);
+  else
+    digitalWrite(bridge[b][1], HIGH);
 }
 
-void move_p(Dir dir, unsigned int Speed) {
-  switch(dir) {
-    case up:
-      setDir(0, CW, Speed);
-      setDir(1, ACW, Speed);
-      break;
-    case down:
-      setDir(0, ACW, Speed);
-      setDir(1, CW, Speed);
-      break;
-    case cw:
-      setDir(0, CW, Speed);
-      setDir(1, CW, Speed);
-      break;
-    case acw:
-      setDir(0, ACW, Speed);
-      setDir(1, ACW, Speed);
-      break;
-  }
+void turnOff() {
+  digitalWrite(bridge[0][0], LOW);
+  digitalWrite(bridge[0][1], LOW);
+  digitalWrite(bridge[1][0], LOW);
+  digitalWrite(bridge[1][1], LOW);
 }
 
-
-void setDir(unsigned int motor, Dir_m dir, unsigned int Speed) {
-  
-  unsigned int hm[] = {LOW, HIGH};
-  if(dir == ACW) {
-    hm[0] = HIGH;
-    hm[1] = LOW;
-  }
-
-  switch (motor) {
-    case 0:
-      digitalWrite(motor1pin1, hm[0]);
-      digitalWrite(motor1pin2, hm[1]);
-      analogWrite(speedPin1, Speed);
-      break;
-    case 1:
-      digitalWrite(motor2pin1, hm[0]);
-      digitalWrite(motor2pin2, hm[1]);
-      analogWrite(speedPin2, Speed); 
-      break;
-    default:
-      // default statements
-      break;
-  }
-}
-
+// the loop function runs over and over again forever
 void loop() {
-  //setDir(0, CW, 50);
-  //setDir(1, CW, 50);
-  delay(5000);
-  move_p(up, 100);
-  delay(1000);
-  stopAll();
-  delay(500);
-  move_p(down, 100);
-  delay(1000);
-  stopAll();
-  delay(500);
-  move_p(cw, 100);
-  delay(1000);
-  stopAll();
-  delay(500);
-  move_p(acw, 100);
-  delay(1000);
-
-  stopAll();
+  dir(0, true);
+  dir(1, true);
+  delay(4000);
+  dir(0, false);
+  dir(1, false);
+  delay(4000);
+  turnOff();
   while(1);
 }
