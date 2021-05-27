@@ -1,7 +1,0 @@
-- https://pypi.org/project/Encoder/
-- https://pypi.org/project/simple-pid/
-- https://pypi.org/project/pydualsense/
-- hidapi-cffi
-- hid
--> https://pypi.org/project/hid/
-  -> apt install libhidapi-hidraw0
