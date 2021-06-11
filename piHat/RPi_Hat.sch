@@ -3147,10 +3147,6 @@ F 6 "-" H 2000 7500 50  0001 C CNN "Mouser Part Number"
 $EndComp
 Text Label 8050 1900 0    50   ~ 0
 Motor1_Out2
-Text Label 9800 3600 2    50   ~ 0
-Motor0_Out1
-Text Label 10200 3600 0    50   ~ 0
-Motor0_Out2
 $Comp
 L Device:C_Small C6
 U 1 1 60C514DE
@@ -3210,10 +3206,6 @@ F 3 "" H 9100 3350 50  0001 C CNN
 	1    9100 3350
 	1    0    0    -1  
 $EndComp
-Text Label 10200 3850 0    50   ~ 0
-Motor1_Out2
-Text Label 9800 3850 2    50   ~ 0
-Motor1_Out1
 $Comp
 L Device:R_Small R11
 U 1 1 60CA4E08
@@ -3351,12 +3343,20 @@ Wire Notes Line
 	6200 600  8650 600 
 Wire Notes Line
 	6200 4000 8650 4000
-Text Label 10450 2150 0    50   ~ 0
-Motor1_Out2
 Text Label 10450 1950 0    50   ~ 0
+Motor1_Out2
+Text Label 10450 2150 0    50   ~ 0
 Motor1_Out1
 Text Label 10450 2650 0    50   ~ 0
 Motor0_Out2
 Text Label 10450 2450 0    50   ~ 0
+Motor0_Out1
+Text Label 10200 3600 0    50   ~ 0
+Motor0_Out2
+Text Label 10200 3850 0    50   ~ 0
+Motor1_Out2
+Text Label 9800 3850 2    50   ~ 0
+Motor1_Out1
+Text Label 9800 3600 2    50   ~ 0
 Motor0_Out1
 $EndSCHEMATC

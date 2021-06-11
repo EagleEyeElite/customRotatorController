@@ -1,4 +1,4 @@
-update=Fr 11 Jun 2021 14:26:18 CEST
+update=Fr 11 Jun 2021 16:45:37 CEST
 version=1
 last_client=kicad
 [cvpcb]
@@ -249,9 +249,20 @@ dPairWidth=0.2
 dPairGap=0.25
 dPairViaGap=0.25
 [pcbnew/Netclasses/1]
-Name=5V
-Clearance=0
-TrackWidth=0.25
+Name=High Current
+Clearance=0.2
+TrackWidth=0.762
+ViaDiameter=0.6
+ViaDrill=0.4
+uViaDiameter=0.3
+uViaDrill=0.1
+dPairWidth=0.2
+dPairGap=0.25
+dPairViaGap=0.25
+[pcbnew/Netclasses/2]
+Name=Power
+Clearance=0.2
+TrackWidth=0.508
 ViaDiameter=0.6
 ViaDrill=0.4
 uViaDiameter=0.3
