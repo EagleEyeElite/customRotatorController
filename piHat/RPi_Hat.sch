@@ -157,8 +157,8 @@ F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 1600 1650 60 
 F 3 "" H 1600 1650 60  0000 C CNN
 F 4 "2222" H 1600 1650 50  0001 C CNN "Manufacturer_Part_Number"
 F 5 "485-2222" H 1600 1650 50  0001 C CNN "Mouser Part Number"
-F 6 "" H 1600 1650 50  0001 C CNN "mpn"
-F 7 "1528-1785-ND" H 1600 1650 50  0001 C CNN "Digikey Part Number"
+F 6 "PPPC202LFBN-RC" H 1600 1650 50  0001 C CNN "mpn"
+F 7 "S7123-ND" H 1600 1650 50  0001 C CNN "Digikey Part Number"
 	1    1600 1650
 	1    0    0    -1  
 $EndComp
@@ -1470,6 +1470,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 9450 1100 50  
 F 3 "~" H 9450 1100 50  0001 C CNN
 F 4 "478-1395-1-ND" H 9450 1100 50  0001 C CNN "Digikey Part Number"
 F 5 "08055C104KAT2A" H 9450 1100 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "08055C104KAT2A" H 9450 1100 50  0001 C CNN "mpn"
 	1    9450 1100
 	0    1    1    0   
 $EndComp
@@ -1491,12 +1492,13 @@ L Logic_LevelTranslator:TXB0104PW U2
 U 1 1 60C4EC24
 P 6400 5500
 F 0 "U2" H 6400 4711 50  0000 C CNN
-F 1 "TXB0104PW" H 6400 4620 50  0000 C CNN
+F 1 "TXS0104E" H 6400 4620 50  0000 C CNN
 F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 6400 4750 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/txb0104.pdf" H 6510 5595 50  0001 C CNN
 F 4 "TXB0104PWR" H 6400 5500 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "595-TXB0104PWR" H 6400 5500 50  0001 C CNN "Mouser Part Number"
-F 6 "296-21929-1-ND" H 6400 5500 50  0001 C CNN "Digikey Part Number"
+F 5 "595-TXS0104ED" H 6400 5500 50  0001 C CNN "Mouser Part Number"
+F 6 "296-34699-5-ND" H 6400 5500 50  0001 C CNN "Digikey Part Number"
+F 7 "TXS0104ED" H 6400 5500 50  0001 C CNN "mpn"
 	1    6400 5500
 	1    0    0    -1  
 $EndComp
@@ -1599,6 +1601,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 10550 5000 50  
 F 3 "~" H 10550 5000 50  0001 C CNN
 F 4 "A129752CT-ND" H 10550 5000 50  0001 C CNN "Digikey Part Number"
 F 5 "CRGCQ0805F1K8" H 10550 5000 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "CRGCQ0805F1K8" H 10550 5000 50  0001 C CNN "mpn"
 	1    10550 5000
 	0    1    1    0   
 $EndComp
@@ -1612,6 +1615,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 10550 5300 50  
 F 3 "~" H 10550 5300 50  0001 C CNN
 F 4 "A129752CT-ND" H 10550 5300 50  0001 C CNN "Digikey Part Number"
 F 5 "CRGCQ0805F1K8" H 10550 5300 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "CRGCQ0805F1K8" H 10550 5300 50  0001 C CNN "mpn"
 	1    10550 5300
 	0    1    1    0   
 $EndComp
@@ -1625,6 +1629,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 10550 5600 50  
 F 3 "~" H 10550 5600 50  0001 C CNN
 F 4 "A129752CT-ND" H 10550 5600 50  0001 C CNN "Digikey Part Number"
 F 5 "CRGCQ0805F1K8" H 10550 5600 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "CRGCQ0805F1K8" H 10550 5600 50  0001 C CNN "mpn"
 	1    10550 5600
 	0    1    1    0   
 $EndComp
@@ -1638,6 +1643,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 10550 5900 50  
 F 3 "~" H 10550 5900 50  0001 C CNN
 F 4 "A129752CT-ND" H 10550 5900 50  0001 C CNN "Digikey Part Number"
 F 5 "CRGCQ0805F1K8" H 10550 5900 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "CRGCQ0805F1K8" H 10550 5900 50  0001 C CNN "mpn"
 	1    10550 5900
 	0    1    1    0   
 $EndComp
@@ -1739,6 +1745,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6100 4700 50  
 F 3 "~" H 6100 4700 50  0001 C CNN
 F 4 "478-1395-1-ND" H 6100 4700 50  0001 C CNN "Digikey Part Number"
 F 5 "08055C104KAT2A" H 6100 4700 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "08055C104KAT2A" H 6100 4700 50  0001 C CNN "mpn"
 	1    6100 4700
 	0    1    1    0   
 $EndComp
@@ -1752,6 +1759,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6650 4700 50  
 F 3 "~" H 6650 4700 50  0001 C CNN
 F 4 "478-1395-1-ND" H 6650 4700 50  0001 C CNN "Digikey Part Number"
 F 5 "08055C104KAT2A" H 6650 4700 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "08055C104KAT2A" H 6650 4700 50  0001 C CNN "mpn"
 	1    6650 4700
 	0    1    1    0   
 $EndComp
@@ -1805,6 +1813,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 9900 5850 50  
 F 3 "~" H 9900 5850 50  0001 C CNN
 F 4 "478-1395-1-ND" H 9900 5850 50  0001 C CNN "Digikey Part Number"
 F 5 "08055C104KAT2A" H 9900 5850 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "08055C104KAT2A" H 9900 5850 50  0001 C CNN "mpn"
 	1    9900 5850
 	-1   0    0    1   
 $EndComp
@@ -1861,6 +1870,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 7600 5100 50  0
 F 3 "~" H 7600 5100 50  0001 C CNN
 F 4 "PAT3.79KBCT-ND" H 7600 5100 50  0001 C CNN "Digikey Part Number"
 F 5 "PAT0805E3791BST1" H 7600 5100 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "PAT0805E3791BST1" H 7600 5100 50  0001 C CNN "mpn"
 	1    7600 5100
 	0    1    1    0   
 $EndComp
@@ -1874,6 +1884,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 7600 5400 50  0
 F 3 "~" H 7600 5400 50  0001 C CNN
 F 4 "PAT3.79KBCT-ND" H 7600 5400 50  0001 C CNN "Digikey Part Number"
 F 5 "PAT0805E3791BST1" H 7600 5400 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "PAT0805E3791BST1" H 7600 5400 50  0001 C CNN "mpn"
 	1    7600 5400
 	0    1    1    0   
 $EndComp
@@ -1887,6 +1898,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 7600 5700 50  0
 F 3 "~" H 7600 5700 50  0001 C CNN
 F 4 "PAT3.79KBCT-ND" H 7600 5700 50  0001 C CNN "Digikey Part Number"
 F 5 "PAT0805E3791BST1" H 7600 5700 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "PAT0805E3791BST1" H 7600 5700 50  0001 C CNN "mpn"
 	1    7600 5700
 	0    1    1    0   
 $EndComp
@@ -1900,6 +1912,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 7600 6000 50  0
 F 3 "~" H 7600 6000 50  0001 C CNN
 F 4 "PAT3.79KBCT-ND" H 7600 6000 50  0001 C CNN "Digikey Part Number"
 F 5 "PAT0805E3791BST1" H 7600 6000 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "PAT0805E3791BST1" H 7600 6000 50  0001 C CNN "mpn"
 	1    7600 6000
 	0    1    1    0   
 $EndComp
@@ -1946,9 +1959,10 @@ F 0 "H3" H 4900 1446 50  0000 L CNN
 F 1 "3mm_Mounting_Hole" H 4900 1355 50  0000 L CNN
 F 2 "piHat:RPi_Hat_Mounting_Hole" H 4800 1400 50  0001 C CNN
 F 3 "~" H 4800 1400 50  0001 C CNN
-F 4 "-" H 4800 1400 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4800 1400 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4800 1400 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4800 1400 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4800 1400 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4800 1400 50  0001 C CNN "mpn"
 	1    4800 1400
 	1    0    0    -1  
 $EndComp
@@ -1960,9 +1974,10 @@ F 0 "H1" H 4900 1046 50  0000 L CNN
 F 1 "3mm_Mounting_Hole" H 4900 955 50  0000 L CNN
 F 2 "piHat:RPi_Hat_Mounting_Hole" H 4800 1000 50  0001 C CNN
 F 3 "~" H 4800 1000 50  0001 C CNN
-F 4 "-" H 4800 1000 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4800 1000 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4800 1000 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4800 1000 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4800 1000 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4800 1000 50  0001 C CNN "mpn"
 	1    4800 1000
 	1    0    0    -1  
 $EndComp
@@ -1974,9 +1989,10 @@ F 0 "H2" H 4900 1246 50  0000 L CNN
 F 1 "3mm_Mounting_Hole" H 4900 1155 50  0000 L CNN
 F 2 "piHat:RPi_Hat_Mounting_Hole" H 4800 1200 50  0001 C CNN
 F 3 "~" H 4800 1200 50  0001 C CNN
-F 4 "-" H 4800 1200 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4800 1200 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4800 1200 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4800 1200 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4800 1200 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4800 1200 50  0001 C CNN "mpn"
 	1    4800 1200
 	1    0    0    -1  
 $EndComp
@@ -1988,9 +2004,10 @@ F 0 "H4" H 4900 1646 50  0000 L CNN
 F 1 "3mm_Mounting_Hole" H 4900 1555 50  0000 L CNN
 F 2 "piHat:RPi_Hat_Mounting_Hole" H 4800 1600 50  0001 C CNN
 F 3 "~" H 4800 1600 50  0001 C CNN
-F 4 "-" H 4800 1600 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4800 1600 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4800 1600 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4800 1600 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4800 1600 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4800 1600 50  0001 C CNN "mpn"
 	1    4800 1600
 	1    0    0    -1  
 $EndComp
@@ -2043,7 +2060,8 @@ F 1 "10u" V 10250 1100 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 10300 1300 50  0001 C CNN
 F 3 "~" H 10300 1300 50  0001 C CNN
 F 4 "1276-1096-2-ND" H 10300 1300 50  0001 C CNN "Digikey Part Number"
-F 5 "	CL21A106KOQNNNE" H 10300 1300 50  0001 C CNN "Manufacturer_Part_Number"
+F 5 "CL21A106KOQNNNE" H 10300 1300 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "CL21A106KOQNNNE" H 10300 1300 50  0001 C CNN "mpn"
 	1    10300 1300
 	0    -1   -1   0   
 $EndComp
@@ -2057,6 +2075,7 @@ F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 10300 1100 50 
 F 3 "~" H 10300 1100 50  0001 C CNN
 F 4 "478-1395-1-ND" H 10300 1100 50  0001 C CNN "Digikey Part Number"
 F 5 "08055C104KAT2A" H 10300 1100 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "08055C104KAT2A" H 10300 1100 50  0001 C CNN "mpn"
 	1    10300 1100
 	0    -1   -1   0   
 $EndComp
@@ -2114,6 +2133,7 @@ F 7 "NXP" H 9200 5450 50  0001 L BNN "SUPPLIER"
 F 8 "1831206" H 9200 5450 50  0001 L BNN "OC_FARNELL"
 F 9 "568-1844-1-ND" H 9200 5450 50  0001 C CNN "Digikey Part Number"
 F 10 "PCA9540BD,118" H 9200 5450 50  0001 C CNN "Manufacturer_Part_Number"
+F 11 "PCA9540BD 118" H 9200 5450 50  0001 C CNN "mpn"
 	1    9200 5450
 	-1   0    0    1   
 $EndComp
@@ -2161,6 +2181,7 @@ F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 5850 5000 50  0
 F 3 "~" H 5850 5000 50  0001 C CNN
 F 4 "PAT3.79KBCT-ND" H 5850 5000 50  0001 C CNN "Digikey Part Number"
 F 5 "PAT0805E3791BST1" H 5850 5000 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "PAT0805E3791BST1" H 5850 5000 50  0001 C CNN "mpn"
 	1    5850 5000
 	0    1    1    0   
 $EndComp
@@ -2221,7 +2242,7 @@ F 1 "CONN_01X02" V 1100 4750 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1000 4750 50  0001 C CNN
 F 3 "" H 1000 4750 50  0000 C CNN
 F 4 "77311-118-02LF" H 1000 4750 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "" H 1000 4750 50  0001 C CNN "mpn"
+F 5 "77311-118-02LF" H 1000 4750 50  0001 C CNN "mpn"
 F 6 "609-4434-ND" H 1000 4750 50  0001 C CNN "Digikey Part Number"
 F 7 "649-77311-118-02LF" H 1000 4750 50  0001 C CNN "Mouser Part Number"
 	1    1000 4750
@@ -2277,9 +2298,10 @@ F 0 "R1" V 1080 6050 50  0000 C CNN
 F 1 "DNP" V 1000 6050 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 930 6050 50  0001 C CNN
 F 3 "-" H 1000 6050 50  0001 C CNN
-F 4 "-" H 1000 6050 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 1000 6050 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 1000 6050 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 1000 6050 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 1000 6050 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 1000 6050 50  0001 C CNN "mpn"
 	1    1000 6050
 	-1   0    0    1   
 $EndComp
@@ -2298,7 +2320,7 @@ F 1 "10K" V 1500 5250 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1430 5250 50  0001 C CNN
 F 3 "https://www.mouser.de/datasheet/2/427/crcwce3-1762584.pdf" H 1500 5250 50  0001 C CNN
 F 4 "CRCW080510K0FKEAC" H 1500 5250 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "" H 1500 5250 50  0001 C CNN "mpn"
+F 5 "CRCW080510K0FKEAC" H 1500 5250 50  0001 C CNN "mpn"
 F 6 "541-3976-1-ND" H 1500 5250 50  0001 C CNN "Digikey Part Number"
 F 7 "71-CRCW080510K0FKEAC" H 1500 5250 50  0001 C CNN "Mouser Part Number"
 	1    1500 5250
@@ -2347,7 +2369,7 @@ F 1 "3.9K" V 3600 5300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3530 5300 50  0001 C CNN
 F 3 "https://www.mouser.de/datasheet/2/315/AOA0000C307-1149632.pdf" H 3600 5300 50  0001 C CNN
 F 4 "ERA-6AED392V" H 3600 5300 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "" H 3600 5300 50  0001 C CNN "mpn"
+F 5 "ERA-6AED392V" H 3600 5300 50  0001 C CNN "mpn"
 F 6 "P123844CT-ND" H 3600 5300 50  0001 C CNN "Digikey Part Number"
 F 7 "667-ERA-6AED392V" H 3600 5300 50  0001 C CNN "Mouser Part Number"
 	1    3600 5300
@@ -2362,7 +2384,7 @@ F 1 "3.9K" V 3350 5300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3280 5300 50  0001 C CNN
 F 3 "https://www.mouser.de/datasheet/2/315/AOA0000C307-1149632.pdf" H 3350 5300 50  0001 C CNN
 F 4 "ERA-6AED392V" H 3350 5300 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "" H 3350 5300 50  0001 C CNN "mpn"
+F 5 "ERA-6AED392V" H 3350 5300 50  0001 C CNN "mpn"
 F 6 "P123844CT-ND" H 3350 5300 50  0001 C CNN "Digikey Part Number"
 F 7 "667-ERA-6AED392V" H 3350 5300 50  0001 C CNN "Mouser Part Number"
 	1    3350 5300
@@ -2377,7 +2399,7 @@ F 1 "CAT24C32" H 1600 6350 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 1850 6000 50  0001 C CNN
 F 3 "https://www.mouser.de/datasheet/2/308/CAT24C32_D-1815633.pdf" H 1850 6000 50  0001 C CNN
 F 4 "CAT24C32WI-GT3" H 1850 6000 50  0001 C CNN "Manufacturer_Part_Number"
-F 5 "" H 1850 6000 50  0001 C CNN "mpn"
+F 5 "CAT24C32WI-GT3" H 1850 6000 50  0001 C CNN "mpn"
 F 6 "CAT24C32WI-GT3CT-ND" H 1850 6000 50  0001 C CNN "Digikey Part Number"
 F 7 "698-CAT24C32WI-GT3" H 1850 6000 50  0001 C CNN "Mouser Part Number"
 	1    1850 6000
@@ -2393,9 +2415,10 @@ F 0 "TP14" V 4400 7300 50  0000 R CNN
 F 1 "DIS_EL_TP" V 4450 7700 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 4650 7000 50  0001 C CNN
 F 3 "~" H 4650 7000 50  0001 C CNN
-F 4 "-" H 4450 7000 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4450 7000 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4450 7000 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4450 7000 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4450 7000 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4450 7000 50  0001 C CNN "mpn"
 	1    4450 7000
 	0    1    1    0   
 $EndComp
@@ -2413,9 +2436,10 @@ F 0 "TP15" V 4400 7400 50  0000 R CNN
 F 1 "DIS_EL_TP" V 4450 7800 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 4650 7100 50  0001 C CNN
 F 3 "~" H 4650 7100 50  0001 C CNN
-F 4 "-" H 4450 7100 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4450 7100 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4450 7100 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4450 7100 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4450 7100 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4450 7100 50  0001 C CNN "mpn"
 	1    4450 7100
 	0    1    1    0   
 $EndComp
@@ -2433,9 +2457,10 @@ F 0 "TP5" V 1950 7400 50  0000 R CNN
 F 1 "DIS_EL_TP" V 2000 7800 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2200 7100 50  0001 C CNN
 F 3 "~" H 2200 7100 50  0001 C CNN
-F 4 "-" H 2000 7100 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 2000 7100 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 2000 7100 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 2000 7100 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 2000 7100 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 2000 7100 50  0001 C CNN "mpn"
 	1    2000 7100
 	0    1    1    0   
 $EndComp
@@ -2449,9 +2474,10 @@ F 0 "TP6" V 1950 7500 50  0000 R CNN
 F 1 "DIS_EL_TP" V 2000 7900 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2200 7200 50  0001 C CNN
 F 3 "~" H 2200 7200 50  0001 C CNN
-F 4 "-" H 2000 7200 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 2000 7200 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 2000 7200 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 2000 7200 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 2000 7200 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 2000 7200 50  0001 C CNN "mpn"
 	1    2000 7200
 	0    1    1    0   
 $EndComp
@@ -2465,9 +2491,10 @@ F 0 "TP25" V 5700 7800 50  0000 R CNN
 F 1 "DIS_EL_TP" V 5750 8200 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5950 7500 50  0001 C CNN
 F 3 "~" H 5950 7500 50  0001 C CNN
-F 4 "-" H 5750 7500 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 5750 7500 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 5750 7500 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 5750 7500 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 5750 7500 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 5750 7500 50  0001 C CNN "mpn"
 	1    5750 7500
 	0    1    1    0   
 $EndComp
@@ -2481,9 +2508,10 @@ F 0 "TP26" V 5700 7900 50  0000 R CNN
 F 1 "DIS_EL_TP" V 5750 8300 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5950 7600 50  0001 C CNN
 F 3 "~" H 5950 7600 50  0001 C CNN
-F 4 "-" H 5750 7600 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 5750 7600 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 5750 7600 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 5750 7600 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 5750 7600 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 5750 7600 50  0001 C CNN "mpn"
 	1    5750 7600
 	0    1    1    0   
 $EndComp
@@ -2497,9 +2525,10 @@ F 0 "TP24" V 5700 7700 50  0000 R CNN
 F 1 "DIS_EL_TP" V 5750 8100 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5950 7400 50  0001 C CNN
 F 3 "~" H 5950 7400 50  0001 C CNN
-F 4 "-" H 5750 7400 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 5750 7400 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 5750 7400 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 5750 7400 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 5750 7400 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 5750 7400 50  0001 C CNN "mpn"
 	1    5750 7400
 	0    1    1    0   
 $EndComp
@@ -2537,9 +2566,10 @@ F 0 "TP16" V 4400 7500 50  0000 R CNN
 F 1 "DIS_EL_TP" V 4450 7900 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 4650 7200 50  0001 C CNN
 F 3 "~" H 4650 7200 50  0001 C CNN
-F 4 "-" H 4450 7200 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4450 7200 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4450 7200 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4450 7200 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4450 7200 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4450 7200 50  0001 C CNN "mpn"
 	1    4450 7200
 	0    1    1    0   
 $EndComp
@@ -2553,9 +2583,10 @@ F 0 "TP17" V 4400 7600 50  0000 R CNN
 F 1 "DIS_EL_TP" V 4450 8000 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 4650 7300 50  0001 C CNN
 F 3 "~" H 4650 7300 50  0001 C CNN
-F 4 "-" H 4450 7300 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4450 7300 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4450 7300 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4450 7300 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4450 7300 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4450 7300 50  0001 C CNN "mpn"
 	1    4450 7300
 	0    1    1    0   
 $EndComp
@@ -2569,9 +2600,10 @@ F 0 "TP18" V 4400 7700 50  0000 R CNN
 F 1 "DIS_EL_TP" V 4450 8100 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 4650 7400 50  0001 C CNN
 F 3 "~" H 4650 7400 50  0001 C CNN
-F 4 "-" H 4450 7400 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4450 7400 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4450 7400 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4450 7400 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4450 7400 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4450 7400 50  0001 C CNN "mpn"
 	1    4450 7400
 	0    1    1    0   
 $EndComp
@@ -2585,9 +2617,10 @@ F 0 "TP19" V 4400 7800 50  0000 R CNN
 F 1 "DIS_EL_TP" V 4450 8200 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 4650 7500 50  0001 C CNN
 F 3 "~" H 4650 7500 50  0001 C CNN
-F 4 "-" H 4450 7500 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 4450 7500 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 4450 7500 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 4450 7500 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 4450 7500 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 4450 7500 50  0001 C CNN "mpn"
 	1    4450 7500
 	0    1    1    0   
 $EndComp
@@ -2601,9 +2634,10 @@ F 0 "TP20" V 5700 7300 50  0000 R CNN
 F 1 "DIS_EL_TP" V 5750 7700 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5950 7000 50  0001 C CNN
 F 3 "~" H 5950 7000 50  0001 C CNN
-F 4 "-" H 5750 7000 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 5750 7000 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 5750 7000 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 5750 7000 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 5750 7000 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 5750 7000 50  0001 C CNN "mpn"
 	1    5750 7000
 	0    1    1    0   
 $EndComp
@@ -2617,9 +2651,10 @@ F 0 "TP21" V 5700 7400 50  0000 R CNN
 F 1 "DIS_EL_TP" V 5750 7800 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5950 7100 50  0001 C CNN
 F 3 "~" H 5950 7100 50  0001 C CNN
-F 4 "-" H 5750 7100 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 5750 7100 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 5750 7100 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 5750 7100 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 5750 7100 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 5750 7100 50  0001 C CNN "mpn"
 	1    5750 7100
 	0    1    1    0   
 $EndComp
@@ -2649,9 +2684,10 @@ F 0 "TP23" V 5700 7600 50  0000 R CNN
 F 1 "DIS_EL_TP" V 5750 8000 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5950 7300 50  0001 C CNN
 F 3 "~" H 5950 7300 50  0001 C CNN
-F 4 "-" H 5750 7300 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 5750 7300 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 5750 7300 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 5750 7300 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 5750 7300 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 5750 7300 50  0001 C CNN "mpn"
 	1    5750 7300
 	0    1    1    0   
 $EndComp
@@ -2665,9 +2701,10 @@ F 0 "TP22" V 5700 7500 50  0000 R CNN
 F 1 "DIS_EL_TP" V 5750 7900 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5950 7200 50  0001 C CNN
 F 3 "~" H 5950 7200 50  0001 C CNN
-F 4 "-" H 5750 7200 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 5750 7200 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 5750 7200 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 5750 7200 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 5750 7200 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 5750 7200 50  0001 C CNN "mpn"
 	1    5750 7200
 	0    1    1    0   
 $EndComp
@@ -2725,9 +2762,10 @@ F 0 "TP4" V 1000 7800 50  0000 R CNN
 F 1 "DIS_EL_TP" V 1050 8200 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1250 7500 50  0001 C CNN
 F 3 "~" H 1250 7500 50  0001 C CNN
-F 4 "-" H 1050 7500 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 1050 7500 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 1050 7500 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 1050 7500 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 1050 7500 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 1050 7500 50  0001 C CNN "mpn"
 	1    1050 7500
 	0    1    1    0   
 $EndComp
@@ -2741,9 +2779,10 @@ F 0 "TP3" V 1000 7700 50  0000 R CNN
 F 1 "DIS_EL_TP" V 1050 8100 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1250 7400 50  0001 C CNN
 F 3 "~" H 1250 7400 50  0001 C CNN
-F 4 "-" H 1050 7400 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 1050 7400 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 1050 7400 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 1050 7400 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 1050 7400 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 1050 7400 50  0001 C CNN "mpn"
 	1    1050 7400
 	0    1    1    0   
 $EndComp
@@ -2757,9 +2796,10 @@ F 0 "TP2" V 1000 7600 50  0000 R CNN
 F 1 "DIS_EL_TP" V 1050 8000 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1250 7300 50  0001 C CNN
 F 3 "~" H 1250 7300 50  0001 C CNN
-F 4 "-" H 1050 7300 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 1050 7300 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 1050 7300 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 1050 7300 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 1050 7300 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 1050 7300 50  0001 C CNN "mpn"
 	1    1050 7300
 	0    1    1    0   
 $EndComp
@@ -2773,9 +2813,10 @@ F 0 "TP1" V 1000 7500 50  0000 R CNN
 F 1 "DIS_EL_TP" V 1050 7900 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1250 7200 50  0001 C CNN
 F 3 "~" H 1250 7200 50  0001 C CNN
-F 4 "-" H 1050 7200 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 1050 7200 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 1050 7200 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 1050 7200 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 1050 7200 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 1050 7200 50  0001 C CNN "mpn"
 	1    1050 7200
 	0    1    1    0   
 $EndComp
@@ -2816,7 +2857,8 @@ F 1 "10u" V 9500 1100 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 9450 1300 50  0001 C CNN
 F 3 "~" H 9450 1300 50  0001 C CNN
 F 4 "1276-1096-2-ND" H 9450 1300 50  0001 C CNN "Digikey Part Number"
-F 5 "	CL21A106KOQNNNE" H 9450 1300 50  0001 C CNN "Manufacturer_Part_Number"
+F 5 "CL21A106KOQNNNE" H 9450 1300 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "CL21A106KOQNNNE" H 9450 1300 50  0001 C CNN "mpn"
 	1    9450 1300
 	0    1    1    0   
 $EndComp
@@ -2968,9 +3010,10 @@ F 0 "TP12" V 3050 7700 50  0000 R CNN
 F 1 "DIS_EL_TP" V 3100 8100 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 3300 7400 50  0001 C CNN
 F 3 "~" H 3300 7400 50  0001 C CNN
-F 4 "-" H 3100 7400 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 3100 7400 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 3100 7400 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 3100 7400 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 3100 7400 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 3100 7400 50  0001 C CNN "mpn"
 	1    3100 7400
 	0    1    1    0   
 $EndComp
@@ -2984,9 +3027,10 @@ F 0 "TP13" V 3050 7800 50  0000 R CNN
 F 1 "DIS_EL_TP" V 3100 8200 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 3300 7500 50  0001 C CNN
 F 3 "~" H 3300 7500 50  0001 C CNN
-F 4 "-" H 3100 7500 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 3100 7500 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 3100 7500 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 3100 7500 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 3100 7500 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 3100 7500 50  0001 C CNN "mpn"
 	1    3100 7500
 	0    1    1    0   
 $EndComp
@@ -3000,9 +3044,10 @@ F 0 "TP11" V 3050 7600 50  0000 R CNN
 F 1 "DIS_EL_TP" V 3100 8000 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 3300 7300 50  0001 C CNN
 F 3 "~" H 3300 7300 50  0001 C CNN
-F 4 "-" H 3100 7300 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 3100 7300 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 3100 7300 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 3100 7300 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 3100 7300 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 3100 7300 50  0001 C CNN "mpn"
 	1    3100 7300
 	0    1    1    0   
 $EndComp
@@ -3016,9 +3061,10 @@ F 0 "TP10" V 3050 7500 50  0000 R CNN
 F 1 "DIS_EL_TP" V 3100 7900 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 3300 7200 50  0001 C CNN
 F 3 "~" H 3300 7200 50  0001 C CNN
-F 4 "-" H 3100 7200 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 3100 7200 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 3100 7200 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 3100 7200 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 3100 7200 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 3100 7200 50  0001 C CNN "mpn"
 	1    3100 7200
 	0    1    1    0   
 $EndComp
@@ -3036,6 +3082,7 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Horizontal" H 7750 1200 5
 F 3 "https://app.adam-tech.com/products/download/data_sheet/200508/ph2ra-xx-ua-data-sheet.pdf" H 7750 1200 50  0001 C CNN
 F 4 "PH2RA-08-UA" H 7750 1200 50  0001 C CNN "Manufacturer_Part_Number"
 F 5 "2057-PH2RA-08-UA-ND" H 7750 1200 50  0001 C CNN "Digikey Part Number"
+F 6 "PH2RA-08-UA" H 7750 1200 50  0001 C CNN "mpn"
 	1    7750 1200
 	1    0    0    -1  
 $EndComp
@@ -3049,6 +3096,7 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_2x06_P2.54mm_Horizontal" H 7750 2000 5
 F 3 "https://app.adam-tech.com/products/download/data_sheet/200508/ph2ra-xx-ua-data-sheet.pdf" H 7750 2000 50  0001 C CNN
 F 4 "PH2RA-12-UA" H 7750 2000 50  0001 C CNN "Manufacturer_Part_Number"
 F 5 "2057-PH2RA-12-UA-ND" H 7750 2000 50  0001 C CNN "Digikey Part Number"
+F 6 "PH2RA-12-UA" H 7750 2000 50  0001 C CNN "mpn"
 	1    7750 2000
 	1    0    0    -1  
 $EndComp
@@ -3086,6 +3134,7 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 6950 1000 5
 F 3 "https://app.adam-tech.com/products/download/data_sheet/201281/ph1rb-xx-ua-data-sheet.pdf" H 6950 1000 50  0001 C CNN
 F 4 "2057-PH1RB-02-UA-ND" H 6950 1000 50  0001 C CNN "Digikey Part Number"
 F 5 "PH1RB-02-UA" H 6950 1000 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "PH1RB-02-UA" H 6950 1000 50  0001 C CNN "mpn"
 	1    6950 1000
 	1    0    0    -1  
 $EndComp
@@ -3103,9 +3152,10 @@ F 0 "TP7" V 1950 7600 50  0000 R CNN
 F 1 "DIS_EL_TP" V 2000 8000 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2200 7300 50  0001 C CNN
 F 3 "~" H 2200 7300 50  0001 C CNN
-F 4 "-" H 2000 7300 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 2000 7300 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 2000 7300 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 2000 7300 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 2000 7300 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 2000 7300 50  0001 C CNN "mpn"
 	1    2000 7300
 	0    1    1    0   
 $EndComp
@@ -3121,9 +3171,10 @@ F 0 "TP8" V 1950 7700 50  0000 R CNN
 F 1 "DIS_EL_TP" V 2000 8100 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2200 7400 50  0001 C CNN
 F 3 "~" H 2200 7400 50  0001 C CNN
-F 4 "-" H 2000 7400 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 2000 7400 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 2000 7400 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 2000 7400 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 2000 7400 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 2000 7400 50  0001 C CNN "mpn"
 	1    2000 7400
 	0    1    1    0   
 $EndComp
@@ -3139,9 +3190,10 @@ F 0 "TP9" V 1950 7800 50  0000 R CNN
 F 1 "DIS_EL_TP" V 2000 8200 50  0000 R CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2200 7500 50  0001 C CNN
 F 3 "~" H 2200 7500 50  0001 C CNN
-F 4 "-" H 2000 7500 50  0001 C CNN "Digikey Part Number"
-F 5 "-" H 2000 7500 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 2000 7500 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 2000 7500 50  0001 C CNN "Manufacturer_Part_Number"
 F 6 "-" H 2000 7500 50  0001 C CNN "Mouser Part Number"
+F 7 "" H 2000 7500 50  0001 C CNN "mpn"
 	1    2000 7500
 	0    1    1    0   
 $EndComp
@@ -3152,11 +3204,12 @@ L Device:C_Small C6
 U 1 1 60C514DE
 P 10100 3600
 F 0 "C6" V 10200 3600 50  0000 L CNN
-F 1 "?" V 10200 3400 50  0000 L CNN
+F 1 "DNP" V 10200 3400 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 10100 3600 50  0001 C CNN
 F 3 "~" H 10100 3600 50  0001 C CNN
-F 4 "?" H 10100 3600 50  0001 C CNN "Digikey Part Number"
-F 5 "?" H 10100 3600 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 10100 3600 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 10100 3600 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "" H 10100 3600 50  0001 C CNN "mpn"
 	1    10100 3600
 	0    -1   -1   0   
 $EndComp
@@ -3165,11 +3218,12 @@ L Device:R_Small R10
 U 1 1 60C55F79
 P 9900 3600
 F 0 "R10" V 10000 3750 50  0000 C CNN
-F 1 "?" V 10000 3600 50  0000 C CNN
+F 1 "DNP" V 10000 3600 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 9900 3600 50  0001 C CNN
 F 3 "~" H 9900 3600 50  0001 C CNN
-F 4 "?" H 9900 3600 50  0001 C CNN "Digikey Part Number"
-F 5 "?" H 9900 3600 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 9900 3600 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 9900 3600 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "" H 9900 3600 50  0001 C CNN "mpn"
 	1    9900 3600
 	0    -1   -1   0   
 $EndComp
@@ -3192,6 +3246,7 @@ F 3 "https://toshiba.semicon-storage.com/us/product/linear/motordriver/detail.TB
 F 4 "TB6612FNG,C,8,EL" H 9850 2350 50  0001 C CNN "Manufacturer_Part_Number"
 F 5 "TB6612FNGC8ELCT-ND" H 9850 2350 50  0001 C CNN "Digikey Part Number"
 F 6 "757-TB6612FNGC8EL" H 9850 2350 50  0001 C CNN "Mouser Part Number"
+F 7 "TB6612FNG C 8 EL" H 9850 2350 50  0001 C CNN "mpn"
 	1    9850 2350
 	1    0    0    -1  
 $EndComp
@@ -3211,11 +3266,12 @@ L Device:R_Small R11
 U 1 1 60CA4E08
 P 9900 3850
 F 0 "R11" V 10000 4000 50  0000 C CNN
-F 1 "?" V 10000 3850 50  0000 C CNN
+F 1 "DNP" V 10000 3850 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 9900 3850 50  0001 C CNN
 F 3 "~" H 9900 3850 50  0001 C CNN
-F 4 "?" H 9900 3850 50  0001 C CNN "Digikey Part Number"
-F 5 "?" H 9900 3850 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 9900 3850 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 9900 3850 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "" H 9900 3850 50  0001 C CNN "mpn"
 	1    9900 3850
 	0    -1   -1   0   
 $EndComp
@@ -3224,11 +3280,12 @@ L Device:C_Small C7
 U 1 1 60CA5DB3
 P 10100 3850
 F 0 "C7" V 10200 3850 50  0000 L CNN
-F 1 "?" V 10200 3650 50  0000 L CNN
+F 1 "DNP" V 10200 3650 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 10100 3850 50  0001 C CNN
 F 3 "~" H 10100 3850 50  0001 C CNN
-F 4 "?" H 10100 3850 50  0001 C CNN "Digikey Part Number"
-F 5 "?" H 10100 3850 50  0001 C CNN "Manufacturer_Part_Number"
+F 4 "~" H 10100 3850 50  0001 C CNN "Digikey Part Number"
+F 5 "~" H 10100 3850 50  0001 C CNN "Manufacturer_Part_Number"
+F 6 "" H 10100 3850 50  0001 C CNN "mpn"
 	1    10100 3850
 	0    -1   -1   0   
 $EndComp
@@ -3262,6 +3319,7 @@ F 2 "piHat:TSW-103-08-G-T-RA" H 9000 3440 60  0001 C CNN
 F 3 "https://www.digikey.de/product-detail/en/samtec-inc/TSW-103-08-G-T-RA/SAM8888-ND/2685879" H 9000 2519 60  0001 C CNN
 F 4 "TSW-103-08-G-T-RA" H 8200 3200 50  0001 C CNN "Manufacturer_Part_Number"
 F 5 "SAM8888-ND" H 8200 3200 50  0001 C CNN "Digikey Part Number"
+F 6 "TSW-103-08-G-T-RA" H 8200 3200 50  0001 C CNN "mpn"
 	1    8200 3200
 	-1   0    0    1   
 $EndComp
