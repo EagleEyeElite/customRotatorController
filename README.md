@@ -38,7 +38,7 @@ deactivate
 
 ## used hardware:
 - [Motor 10RPM](https://www.banggood.com/Machifit-JGY-370-DC-12V-103090150RPM-Motor-Reduction-Gear-Turbine-Worm-Self-locking-Encoder-Signal-Feedback-Motor-p-1504101.html)
-
+- [pi Hat git template](https://github.com/xesscorp/RPi_Hat_Template)
 
 ## sources:
 - [Encoder](https://projects.raspberrypi.org/en/projects/robotPID/2)
