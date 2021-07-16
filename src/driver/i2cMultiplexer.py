@@ -28,6 +28,7 @@ class I2cMultiplexer(object):
         self.channel = None
         self._bus = smbus.SMBus(1)
         self._select_channel = [PCA9540B.select_channel_1, PCA9540B.select_channel_0]
+        self.select_channel(0)
 
     def select_channel(self, channel):
         """

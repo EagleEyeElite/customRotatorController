@@ -6,6 +6,7 @@ from i2cHandler import I2cHandler
 from driver.hBridge import HBridge, MotorDir
 from shaft import Shaft
 from driver.encoder import set_up_encoder
+from driver.switch import Switch
 
 # TODO implement Shaft Controller -> good name: Actuator?, use singleton classes or modules?
 
@@ -17,6 +18,8 @@ if __name__ == "__main__":
     ens = set_up_encoder()
     h = HBridge()
     i2c = I2cHandler()
+    sw = Switch()
+
     try:
         a0 = Shaft(0, ens[0], h, i2c)
         a1 = Shaft(1, ens[1], h, i2c)
