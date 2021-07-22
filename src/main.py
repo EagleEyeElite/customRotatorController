@@ -3,14 +3,9 @@ import threading
 
 import RPi.GPIO as GPIO
 import time
-from i2cHandler import I2cHandler
-from driver.hBridge import HBridge, MotorDir
-from shaft import Shaft
-from driver.encoder import set_up_encoder
-from driver.switch import Switch
-from rotctl import RotCtl
 from configuration import Configuration
 from Controller import Controller
+from rotctl import RotCtl
 
 # TODO implement Shaft Controller -> good name: Actuator?, use singleton classes or modules?
 
@@ -31,7 +26,7 @@ if __name__ == "__main__":
         t0.start()
         t1.start()
         while True:
-            rC.print_debug()
+            controller.print_debug()
             time.sleep(0.1)
             pass
 
@@ -40,6 +35,10 @@ if __name__ == "__main__":
 
     # quit
     # h.set_standby(True) # TODO move into Controller
+    rotctl.stop()
+    controller.stop()
+    t1.join(timeout=1)
+    t0.join(timeout=1)
     time.sleep(0.5)  # wait for motor encoder to stop
     GPIO.cleanup()
     print(" exit")

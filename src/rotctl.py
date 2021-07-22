@@ -1,7 +1,7 @@
 import socket
 import selectors
 from logzero import logger
-from configuration import Configuration
+from configuration import Configuration, RotatorDir, State
 import threading
 
 
@@ -22,11 +22,21 @@ class RotCtl(threading.Thread):
         self.selector.register(server_socket, selectors.EVENT_READ)
         self.rC = rc
 
+        self._stop_event = threading.Event()
+
+        self._error = b'RPRT -1\n'
+        self._confirm = b'RPRT 0\n'
+
+    def stop(self):
+        self._stop_event.set()
+
     def __del__(self):
         self.selector.close()
 
     def run(self):
         while True:
+            if self._stop_event.is_set():
+                return
             events = self.selector.select(timeout=None)
             for key, _ in events:
                 if key.data is None:
@@ -50,7 +60,7 @@ class RotCtl(threading.Thread):
             sock.close()
 
         elif request == '\\dump_state\n':
-            sock.sendall(f"{0}\n{2}\n{0}\n{100000}\n{0}\n{100000}\n".encode('utf-8'))
+            sock.sendall(f"{0}\n{2}\n{0}\n{360}\n{0}\n{360}\n".encode('utf-8'))
 
         elif listed_command[0] == 'P':
             az = listed_command[1]
@@ -60,8 +70,43 @@ class RotCtl(threading.Thread):
 
         elif request == 'p\n':
             self.get_pos(sock)
+
+        elif listed_command[0] == 'M':
+            direc = listed_command[1]
+            speed = listed_command[2]
+            self.move(sock, direc, speed)
+            logger.info(f"MOVE request: DIR {direc}, Speed {speed}")
+
+        elif request == 'K\n':
+            self.set_pos(sock, "0", "0")
+            logger.info(f"PARK request: AZ {0}, EL {0}")
+
+        elif request == 'S\n':
+            self.rC.state = State.stop
+            sock.sendall(self._confirm)
+            logger.info(f"Stop request")
+
+        elif listed_command[0] == 'R':
+            reset_option = listed_command[1]
+
+            if reset_option != '1\n':
+                sock.sendall(self._error)
+                return
+
+            sock.sendall(self._confirm)
+
+            self.set_pos(sock, "0", "0")
+
+            if reset_option == '1\n':
+                logger.info(f"RESET request: AZ {0}, EL {0}")
+            else:
+                logger.info(f"RESET request: Unknown option {reset_option}")
+
+        elif request == '_\n':
+            sock.sendall("Satcom custom Rotator\n".encode('utf-8'))
+
         else:
-            sock.sendall(b'RPRT -1\n')
+            sock.sendall(self._error)
 
     def get_pos(self, sock: socket.socket):
         pos = self.rC.get_actual_pos()
@@ -70,7 +115,30 @@ class RotCtl(threading.Thread):
     def set_pos(self, sock: socket.socket, az_str: str, el_str: str):
         try:
             self.rC.set_desired_pos([int(float(az_str)), int(float(el_str))])
+            self.rC.state = State.move_to_pos
         except ValueError:
-            sock.sendall(b'RPRT -1\n')
+            sock.sendall(self._error)
         else:
-            sock.sendall(b'RPRT 0\n')
+            sock.sendall(self._confirm)
+
+    def move(self, sock: socket.socket, dir: str, speed: str):
+        try:
+            self.rC.speed = int(speed)
+        except ValueError:
+            sock.sendall(self._error)
+            self.rC.state = State.stop
+            return
+
+        sock.sendall(self._confirm)
+        self.rC.state = State.move_to_dir
+
+        if dir == '2':
+            self.rC.set_desired_direc(RotatorDir.up)
+        elif dir == '4':
+            self.rC.set_desired_direc(RotatorDir.down)
+        elif dir == '8':
+            self.rC.set_desired_direc(RotatorDir.clockwise)
+        elif dir == '16':
+            self.rC.set_desired_direc(RotatorDir.counterclockwise)
+        else:
+            logger.warning("Wrong MOVE direction")
