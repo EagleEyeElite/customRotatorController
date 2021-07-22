@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import threading
 
 import RPi.GPIO as GPIO
 import time
@@ -7,49 +8,38 @@ from driver.hBridge import HBridge, MotorDir
 from shaft import Shaft
 from driver.encoder import set_up_encoder
 from driver.switch import Switch
+from rotctl import RotCtl
+from configuration import Configuration
+from Controller import Controller
 
 # TODO implement Shaft Controller -> good name: Actuator?, use singleton classes or modules?
+
 
 if __name__ == "__main__":
     """
     Software entry point
     """
-    GPIO.setmode(GPIO.BCM)
-    ens = set_up_encoder()
-    h = HBridge()
-    i2c = I2cHandler()
-    sw = Switch()
+
+    rC = Configuration()
+    controller = Controller(rC)
+    rotctl = RotCtl(rC)
+
+    t0 = threading.Thread(target=rotctl.run)
+    t1 = threading.Thread(target=controller.run)
 
     try:
-        a0 = Shaft(0, ens[0], h, i2c)
-        a1 = Shaft(1, ens[1], h, i2c)
-
-        old_time = time.time()
-        direction = MotorDir.clockwise
-        a0.drive(direction, 50)
-        a1.drive(direction, 50)
-
+        t0.start()
+        t1.start()
         while True:
-            if time.time() - old_time >= 15:
-                old_time = time.time()
-                a0.drive(MotorDir.clockwise, 0)
-                a1.drive(MotorDir.clockwise, 0)
-                time.sleep(2)
-                direction = MotorDir.clockwise if direction == MotorDir.anticlockwise else MotorDir.anticlockwise
-                a0.drive(MotorDir.anticlockwise, 50)
-                a1.drive(MotorDir.anticlockwise, 50)
-
-            print(str(a0.get_encoder_pos()) + "\t" +
-                  str(a0.get_magnetic_encoder_angle()) + "\t" +
-                  str(a1.get_encoder_pos()) + "\t" +
-                  str(a1.get_magnetic_encoder_angle()))
-            time.sleep(0.2)
+            rC.print_debug()
+            time.sleep(0.1)
+            pass
 
     except KeyboardInterrupt:
         pass
 
     # quit
-    h.set_standby(True)
+    # h.set_standby(True) # TODO move into Controller
     time.sleep(0.5)  # wait for motor encoder to stop
     GPIO.cleanup()
     print(" exit")
