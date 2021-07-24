@@ -3,9 +3,8 @@ import threading
 
 import RPi.GPIO as GPIO
 import time
-from configuration import Configuration
-from Controller import Controller
-from rotctl import RotCtl
+import interface
+from controller.controller import Controller
 
 # TODO implement Shaft Controller -> good name: Actuator?, use singleton classes or modules?
 
@@ -15,9 +14,9 @@ if __name__ == "__main__":
     Software entry point
     """
 
-    rC = Configuration()
+    rC = interface.Configuration()
     controller = Controller(rC)
-    rotctl = RotCtl(rC)
+    rotctl = interface.RotCtl(rC)
 
     t0 = threading.Thread(target=rotctl.run)
     t1 = threading.Thread(target=controller.run)
@@ -27,7 +26,7 @@ if __name__ == "__main__":
         t1.start()
         while True:
             controller.print_debug()
-            time.sleep(0.1)
+            time.sleep(0.5)
             pass
 
     except KeyboardInterrupt:

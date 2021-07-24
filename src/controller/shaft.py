@@ -1,5 +1,5 @@
-from driver.hBridge import HBridge, MotorDir
-from i2cHandler import I2cHandler
+import driver
+from .i2cHandler import I2cHandler
 import Encoder
 import RPi.GPIO as GPIO
 
@@ -10,7 +10,7 @@ class Shaft(object):
     includes: magnetic encoder, motor, rotary encoder
     """
 
-    def __init__(self, channel, encoder: Encoder, h_bridge: HBridge, multiplexer: I2cHandler):
+    def __init__(self, channel, encoder: Encoder, h_bridge: driver.hBridge.HBridge, multiplexer: I2cHandler):
         GPIO.setmode(GPIO.BCM)
         self.hBridge = h_bridge
         self.mul = multiplexer
@@ -23,7 +23,7 @@ class Shaft(object):
     def get_magnetic_encoder_angle(self):
         return self.mul.get_magnetic_encoder(self.channel).get_raw_angle()
 
-    def drive(self, direction: MotorDir, speed):
+    def drive(self, direction: driver.hBridge.MotorDir, speed):
         self.hBridge.drive(self.channel, direction, speed)
 
     def stop(self):

@@ -1,7 +1,7 @@
 import socket
 import selectors
 from logzero import logger
-from configuration import Configuration, RotatorDir, State
+from .configuration import Configuration, RotatorDir, State
 import threading
 
 

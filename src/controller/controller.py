@@ -1,23 +1,22 @@
-from i2cHandler import I2cHandler
-from driver.hBridge import HBridge, MotorDir
-from shaft import Shaft
-from driver.encoder import set_up_encoder
-from driver.switch import Switch
-from configuration import Configuration, RotatorDir, State
 import time
 import threading
 import RPi.GPIO as GPIO
+import driver
+import interface
+
+from .shaft import Shaft
+from .i2cHandler import I2cHandler
 
 
 class Controller(threading.Thread):
-    def __init__(self, rc: Configuration):
+    def __init__(self, rc: interface.Configuration):
         super().__init__()
         GPIO.setmode(GPIO.BCM)
-        ens = set_up_encoder()
-        h = HBridge()
+        ens = driver.encoder.set_up_encoder()
+        h = driver.hBridge.HBridge()
         i2c = I2cHandler()
         self.shaft = [Shaft(0, ens[0], h, i2c), Shaft(1, ens[1], h, i2c)]
-        self.sw = Switch()
+        self.sw = driver.switch.Switch()
 
         self.rc = rc
         self.m_encoder_offset = [-self.shaft[0].get_magnetic_encoder_angle(),
@@ -38,25 +37,25 @@ class Controller(threading.Thread):
             self.rc.set_actual_pos(magnetic_encoder_angle)
             desired_pos = self.rc.get_desired_pos()
 
-            if self.rc.state == State.stop:
+            if self.rc.state == interface.State.stop:
                 self.shaft[0].stop()
                 self.shaft[1].stop()
-            elif self.rc.state == State.move_to_dir:
+            elif self.rc.state == interface.State.move_to_dir:
                 speed = self.rc.speed
-                if self.rc.get_desired_direc() == RotatorDir.up:
-                    self.shaft[0].drive(MotorDir.clockwise, speed)
-                    self.shaft[1].drive(MotorDir.clockwise, speed)
-                elif self.rc.get_desired_direc() == RotatorDir.down:
-                    self.shaft[0].drive(MotorDir.counterclockwise, speed)
-                    self.shaft[1].drive(MotorDir.counterclockwise, speed)
-                elif self.rc.get_desired_direc() == RotatorDir.clockwise:
-                    self.shaft[0].drive(MotorDir.counterclockwise, speed)
-                    self.shaft[1].drive(MotorDir.clockwise, speed)
-                elif self.rc.get_desired_direc() == RotatorDir.counterclockwise:
-                    self.shaft[0].drive(MotorDir.clockwise, speed)
-                    self.shaft[1].drive(MotorDir.counterclockwise, speed)
+                if self.rc.get_desired_direc() == interface.RotatorDir.up:
+                    self.shaft[0].drive(driver.hBridge.MotorDir.clockwise, speed)
+                    self.shaft[1].drive(driver.hBridge.MotorDir.clockwise, speed)
+                elif self.rc.get_desired_direc() == interface.RotatorDir.down:
+                    self.shaft[0].drive(driver.hBridge.MotorDir.counterclockwise, speed)
+                    self.shaft[1].drive(driver.hBridge.MotorDir.counterclockwise, speed)
+                elif self.rc.get_desired_direc() == interface.RotatorDir.clockwise:
+                    self.shaft[0].drive(driver.hBridge.MotorDir.counterclockwise, speed)
+                    self.shaft[1].drive(driver.hBridge.MotorDir.clockwise, speed)
+                elif self.rc.get_desired_direc() == interface.RotatorDir.counterclockwise:
+                    self.shaft[0].drive(driver.hBridge.MotorDir.clockwise, speed)
+                    self.shaft[1].drive(driver.hBridge.MotorDir.counterclockwise, speed)
 
-            elif self.rc.state == State.move_to_pos:
+            elif self.rc.state == interface.State.move_to_pos:
                 desired_shaft_pos = self.convert_to_shaft_pos(desired_pos)
                 for idx, shaft in enumerate(self.shaft):
                     distance = abs(motor_angle[idx] - desired_shaft_pos[idx])
@@ -68,9 +67,9 @@ class Controller(threading.Thread):
                             speed = 20
 
                         if motor_angle[idx] < desired_shaft_pos[idx]:
-                            shaft.drive(MotorDir.clockwise, speed)
+                            shaft.drive(driver.hBridge.MotorDir.clockwise, speed)
                         else:
-                            shaft.drive(MotorDir.anticlockwise, speed)
+                            shaft.drive(driver.hBridge.MotorDir.anticlockwise, speed)
 
             time.sleep(0.1)
 

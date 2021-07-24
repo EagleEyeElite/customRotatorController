@@ -1,5 +1,4 @@
-from driver.i2cMultiplexer import I2cMultiplexer
-from driver.magneticEncoder import MagneticEncoder
+import driver
 
 
 class I2cHandler(object):
@@ -9,8 +8,8 @@ class I2cHandler(object):
     """
 
     def __init__(self):
-        self._mul = I2cMultiplexer()
-        self._mEnc = [MagneticEncoder(), MagneticEncoder()]
+        self._mul = driver.i2cMultiplexer.I2cMultiplexer()
+        self._mEnc = [driver.magneticEncoder.MagneticEncoder(), driver.magneticEncoder.MagneticEncoder()]
 
     def get_magnetic_encoder(self, channel):
         """

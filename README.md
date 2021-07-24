@@ -46,9 +46,3 @@ deactivate
 - [hardware Encoder](https://www.youtube.com/watch?v=41ogu0UlwCc)
 - [hardware Encoder](https://www.allaboutcircuits.com/industry-articles/designing-quadrature-encoder-counter-with-spi-bus/)
 
-## extras
-Ticks vs Angle: \
-Motor: 11 pulses per rotation, 2 Channels, 1 Pulse = two Edges \
-1 Motor rotation == 44 Edges ( 1 Edge == 1 software ticks) \
-Gear ratio: 600 -> 1 Shaft rotation == 44*600 == 264000 software ticks \
-1° == 73,3 ticks -> hardware rotary encoder?
