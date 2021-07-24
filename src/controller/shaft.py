@@ -28,14 +28,3 @@ class Shaft(object):
 
     def stop(self):
         self.hBridge.stop_channel(self.channel)
-
-
-    # TODO just some parked code, remove it if not needed
-    # def angle(self, deg, dir_e):
-    #     start_ticks = self._m1.encoder.read()
-    #     needed_ticks = self._m1.encoder.read() + deg*((11*4*600) / 360)
-    #     while self._m1.encoder.read() - needed_ticks < 15:
-    #         self._m1.rotate(MotorDir.clockwise, 3000)
-    #         print("ticks: {}, overall ticks: {}".format(self._m1.encoder.read() - needed_ticks, self._m1.encoder.read()))
-    #
-    #     self._m1.stop()

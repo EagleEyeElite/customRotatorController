@@ -46,3 +46,7 @@ deactivate
 - [hardware Encoder](https://www.youtube.com/watch?v=41ogu0UlwCc)
 - [hardware Encoder](https://www.allaboutcircuits.com/industry-articles/designing-quadrature-encoder-counter-with-spi-bus/)
 
+connect to rotctl:  
+```
+rotctl -m 2 -r 10.42.0.101:4533
+```

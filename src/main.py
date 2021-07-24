@@ -25,8 +25,8 @@ if __name__ == "__main__":
         t0.start()
         t1.start()
         while True:
-            controller.print_debug()
-            time.sleep(0.5)
+            # controller.print_debug()
+            time.sleep(1)
             pass
 
     except KeyboardInterrupt:
@@ -36,9 +36,9 @@ if __name__ == "__main__":
     # h.set_standby(True) # TODO move into Controller
     rotctl.stop()
     controller.stop()
-    t1.join(timeout=1)
-    t0.join(timeout=1)
-    time.sleep(0.5)  # wait for motor encoder to stop
+    t1.join(timeout=2)
+    t0.join(timeout=2)
+    time.sleep(2)  # wait for motor encoder to stop
     GPIO.cleanup()
     print(" exit")
     time.sleep(0.05)  # wait for stdout

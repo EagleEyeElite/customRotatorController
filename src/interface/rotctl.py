@@ -3,7 +3,8 @@ import selectors
 from logzero import logger
 from .configuration import Configuration, RotatorDir, State
 import threading
-
+import sys
+import errno
 
 class RotCtl(threading.Thread):
     """
@@ -37,12 +38,25 @@ class RotCtl(threading.Thread):
         while True:
             if self._stop_event.is_set():
                 return
-            events = self.selector.select(timeout=None)
+            events = self.selector.select(timeout=1)
             for key, _ in events:
                 if key.data is None:
                     self.accept_client(key.fileobj)
-                else:
-                    self.service_client(key.fileobj, key.data)
+                    continue
+
+                try:
+                    request = key.fileobj.recv(4096).decode('utf-8')
+                except socket.error as e:
+                    err = e.args[0]
+                    if err != errno.EAGAIN and err != errno.EWOULDBLOCK:
+                        # a "real" error occurred
+                        print("shit, exit")
+                        sys.exit(1)
+                    continue
+
+                self.service_client(key.fileobj, key.data, request)
+
+
 
     def accept_client(self, socket: socket.socket):
         client_sock, addr = socket.accept()
@@ -50,8 +64,7 @@ class RotCtl(threading.Thread):
         client_sock.setblocking(False)
         self.selector.register(client_sock, selectors.EVENT_READ, data=addr)
 
-    def service_client(self, sock: socket.socket, addr):
-        request = sock.recv(4096).decode('utf-8')
+    def service_client(self, sock: socket.socket, addr, request):
         listed_command = request.split(' ')
 
         if not request or request == 'q\n':

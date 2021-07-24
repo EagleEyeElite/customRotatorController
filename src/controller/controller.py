@@ -5,6 +5,7 @@ import driver
 import interface
 
 from .shaft import Shaft
+from .rotator import Rotator
 from .i2cHandler import I2cHandler
 
 
@@ -15,12 +16,14 @@ class Controller(threading.Thread):
         ens = driver.encoder.set_up_encoder()
         h = driver.hBridge.HBridge()
         i2c = I2cHandler()
-        self.shaft = [Shaft(0, ens[0], h, i2c), Shaft(1, ens[1], h, i2c)]
+        shaft = [Shaft(0, ens[0], h, i2c), Shaft(1, ens[1], h, i2c)]
+        self.Rotator = Rotator(shaft)
+
         self.sw = driver.switch.Switch()
 
         self.rc = rc
-        self.m_encoder_offset = [-self.shaft[0].get_magnetic_encoder_angle(),
-                                 -self.shaft[1].get_magnetic_encoder_angle()]
+        self.m_encoder_offset = [-self.Rotator.shaft[0].get_magnetic_encoder_angle(),
+                                 -self.Rotator.shaft[1].get_magnetic_encoder_angle()]
 
         self._stop_event = threading.Event()
 
@@ -38,26 +41,26 @@ class Controller(threading.Thread):
             desired_pos = self.rc.get_desired_pos()
 
             if self.rc.state == interface.State.stop:
-                self.shaft[0].stop()
-                self.shaft[1].stop()
+                self.Rotator.shaft[0].stop()
+                self.Rotator.shaft[1].stop()
             elif self.rc.state == interface.State.move_to_dir:
                 speed = self.rc.speed
                 if self.rc.get_desired_direc() == interface.RotatorDir.up:
-                    self.shaft[0].drive(driver.hBridge.MotorDir.clockwise, speed)
-                    self.shaft[1].drive(driver.hBridge.MotorDir.clockwise, speed)
+                    self.Rotator.shaft[0].drive(driver.hBridge.MotorDir.clockwise, speed)
+                    self.Rotator.shaft[1].drive(driver.hBridge.MotorDir.clockwise, speed)
                 elif self.rc.get_desired_direc() == interface.RotatorDir.down:
-                    self.shaft[0].drive(driver.hBridge.MotorDir.counterclockwise, speed)
-                    self.shaft[1].drive(driver.hBridge.MotorDir.counterclockwise, speed)
+                    self.Rotator.shaft[0].drive(driver.hBridge.MotorDir.counterclockwise, speed)
+                    self.Rotator.shaft[1].drive(driver.hBridge.MotorDir.counterclockwise, speed)
                 elif self.rc.get_desired_direc() == interface.RotatorDir.clockwise:
-                    self.shaft[0].drive(driver.hBridge.MotorDir.counterclockwise, speed)
-                    self.shaft[1].drive(driver.hBridge.MotorDir.clockwise, speed)
+                    self.Rotator.shaft[0].drive(driver.hBridge.MotorDir.counterclockwise, speed)
+                    self.Rotator.shaft[1].drive(driver.hBridge.MotorDir.clockwise, speed)
                 elif self.rc.get_desired_direc() == interface.RotatorDir.counterclockwise:
-                    self.shaft[0].drive(driver.hBridge.MotorDir.clockwise, speed)
-                    self.shaft[1].drive(driver.hBridge.MotorDir.counterclockwise, speed)
+                    self.Rotator.shaft[0].drive(driver.hBridge.MotorDir.clockwise, speed)
+                    self.Rotator.shaft[1].drive(driver.hBridge.MotorDir.counterclockwise, speed)
 
             elif self.rc.state == interface.State.move_to_pos:
                 desired_shaft_pos = self.convert_to_shaft_pos(desired_pos)
-                for idx, shaft in enumerate(self.shaft):
+                for idx, shaft in enumerate(self.Rotator.shaft):
                     distance = abs(motor_angle[idx] - desired_shaft_pos[idx])
                     if distance <= 5:
                         shaft.stop()
@@ -74,8 +77,8 @@ class Controller(threading.Thread):
             time.sleep(0.1)
 
     def get_mag_encoder_angle(self) -> [int, int]:
-        magnetic_encoder_raw_angle = [self.shaft[0].get_magnetic_encoder_angle(),
-                                      self.shaft[1].get_magnetic_encoder_angle()]
+        magnetic_encoder_raw_angle = [self.Rotator.shaft[0].get_magnetic_encoder_angle(),
+                                      self.Rotator.shaft[1].get_magnetic_encoder_angle()]
 
         pos = [int(((float(magnetic_encoder_raw_angle[0] + self.m_encoder_offset[0]) % 4096.0) / 4096.0) * 360.0),
                int(((float(magnetic_encoder_raw_angle[1] + self.m_encoder_offset[1]) % 4096.0 / 4096.0)) * 360.0)]
@@ -104,8 +107,8 @@ class Controller(threading.Thread):
         return [shaft_angle[0] - shaft_angle[1], shaft_angle[0] + shaft_angle[1]]
 
     def motor_encoder_to_angle(self):
-        encoder_pos = [self.shaft[0].encoder.read(),
-                       self.shaft[1].encoder.read()]
+        encoder_pos = [self.Rotator.shaft[0].encoder.read(),
+                       self.Rotator.shaft[1].encoder.read()]
         angle = [0, 0]
         # Ticks vs Angle:
         # Motor: 11 pulses per rotation, per channel
