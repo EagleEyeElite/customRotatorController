@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 import time
 import interface
 from controller.controller import Controller
+import sys
 
 # TODO implement Shaft Controller -> good name: Actuator?, use singleton classes or modules?
 
@@ -36,10 +37,10 @@ if __name__ == "__main__":
     # h.set_standby(True) # TODO move into Controller
     rotctl.stop()
     controller.stop()
-    t1.join(timeout=2)
-    t0.join(timeout=2)
-    time.sleep(2)  # wait for motor encoder to stop
+    t1.join(timeout=0.2)
+    t0.join(timeout=0.2)
+    time.sleep(0.5)  # wait for motor encoder to stop
     GPIO.cleanup()
     print(" exit")
     time.sleep(0.05)  # wait for stdout
-    exit()
+    sys.exit(0)

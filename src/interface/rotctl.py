@@ -6,6 +6,7 @@ import threading
 import sys
 import errno
 
+
 class RotCtl(threading.Thread):
     """
     This class serves a rotctl API.
@@ -21,7 +22,7 @@ class RotCtl(threading.Thread):
 
         self.selector = selectors.DefaultSelector()
         self.selector.register(server_socket, selectors.EVENT_READ)
-        self.rC = rc
+        self.RC = rc
 
         self._stop_event = threading.Event()
 
@@ -38,7 +39,7 @@ class RotCtl(threading.Thread):
         while True:
             if self._stop_event.is_set():
                 return
-            events = self.selector.select(timeout=1)
+            events = self.selector.select(timeout=0.1)
             for key, _ in events:
                 if key.data is None:
                     self.accept_client(key.fileobj)
@@ -55,8 +56,6 @@ class RotCtl(threading.Thread):
                     continue
 
                 self.service_client(key.fileobj, key.data, request)
-
-
 
     def accept_client(self, socket: socket.socket):
         client_sock, addr = socket.accept()
@@ -95,7 +94,7 @@ class RotCtl(threading.Thread):
             logger.info(f"PARK request: AZ {0}, EL {0}")
 
         elif request == 'S\n':
-            self.rC.state = State.stop
+            self.RC.state = State.stop
             sock.sendall(self._confirm)
             logger.info(f"Stop request")
 
@@ -122,13 +121,13 @@ class RotCtl(threading.Thread):
             sock.sendall(self._error)
 
     def get_pos(self, sock: socket.socket):
-        pos = self.rC.get_actual_pos()
+        pos = self.RC.actual_pos
         sock.sendall(f"{format(pos[0], '.6f')}\n{format(pos[1], '.6f')}\n".encode('utf-8'))
 
     def set_pos(self, sock: socket.socket, az_str: str, el_str: str):
         try:
-            self.rC.set_desired_pos([int(float(az_str)), int(float(el_str))])
-            self.rC.state = State.move_to_pos
+            self.RC.desired_pos = [int(float(az_str)), int(float(el_str))]
+            self.RC.state = State.move_to_pos
         except ValueError:
             sock.sendall(self._error)
         else:
@@ -136,22 +135,22 @@ class RotCtl(threading.Thread):
 
     def move(self, sock: socket.socket, dir: str, speed: str):
         try:
-            self.rC.speed = int(speed)
+            self.RC.speed = int(speed)
         except ValueError:
             sock.sendall(self._error)
-            self.rC.state = State.stop
+            self.RC.state = State.stop
             return
 
         sock.sendall(self._confirm)
-        self.rC.state = State.move_to_dir
+        self.RC.state = State.move_to_dir
 
         if dir == '2':
-            self.rC.set_desired_direc(RotatorDir.up)
+            self.RC.desired_direc = RotatorDir.up
         elif dir == '4':
-            self.rC.set_desired_direc(RotatorDir.down)
+            self.RC.desired_direc = RotatorDir.down
         elif dir == '8':
-            self.rC.set_desired_direc(RotatorDir.clockwise)
+            self.RC.desired_direc = RotatorDir.clockwise
         elif dir == '16':
-            self.rC.set_desired_direc(RotatorDir.counterclockwise)
+            self.RC.desired_direc = RotatorDir.counterclockwise
         else:
             logger.warning("Wrong MOVE direction")
