@@ -1,5 +1,3 @@
-from threading import Lock
-
 from enum import IntEnum
 
 

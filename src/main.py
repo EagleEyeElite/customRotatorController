@@ -1,14 +1,10 @@
 #!/usr/bin/python3
 import threading
-
-import RPi.GPIO as GPIO
-import time
-import interface
-from controller.controller import Controller
 import sys
 
-# TODO implement Shaft Controller -> good name: Actuator?, use singleton classes or modules?
-
+import time
+import interface
+import controller
 
 if __name__ == "__main__":
     """
@@ -16,17 +12,17 @@ if __name__ == "__main__":
     """
 
     rC = interface.Configuration()
-    controller = Controller(rC)
-    rotctl = interface.RotCtl(rC)
+    controller = controller.Controller(rC)
+    rotCtl = interface.RotCtl(rC)
 
-    t0 = threading.Thread(target=rotctl.run)
+    t0 = threading.Thread(target=rotCtl.run)
     t1 = threading.Thread(target=controller.run)
 
     try:
         t0.start()
         t1.start()
         while True:
-            # controller.print_debug()
+            controller.sRec.print_debug()
             time.sleep(1)
             pass
 
@@ -34,13 +30,10 @@ if __name__ == "__main__":
         pass
 
     # quit
-    # h.set_standby(True) # TODO move into Controller
-    rotctl.stop()
+    rotCtl.stop()
     controller.stop()
-    t1.join(timeout=0.2)
     t0.join(timeout=0.2)
-    time.sleep(0.5)  # wait for motor encoder to stop
-    GPIO.cleanup()
-    print(" exit")
+    t1.join(timeout=0.8)
+    print("\nexit")
     time.sleep(0.05)  # wait for stdout
     sys.exit(0)

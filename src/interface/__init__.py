@@ -1,2 +1,2 @@
-from .rotctl import RotatorDir, RotCtl
-from .configuration import Configuration, State, RotatorDir
+from .RotCtl import RotatorDir, RotCtl
+from .Configuration import Configuration, State, RotatorDir
