@@ -21,5 +21,5 @@ class Configuration(object):
         self.speed = 20
 
         self.actualPos: [int, int] = [0, 0]
-
+        self.error = False
         self.state = State.stop

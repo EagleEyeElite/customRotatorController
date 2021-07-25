@@ -72,7 +72,7 @@ class RotCtl(threading.Thread):
             sock.close()
 
         elif request == '\\dump_state\n':
-            sock.sendall(f"{0}\n{2}\n{0}\n{360}\n{0}\n{360}\n".encode('utf-8'))
+            sock.sendall(f"{0}\n{2}\n{0}\n{360}\n{0}\n{90}\n".encode('utf-8'))
 
         elif listed_command[0] == 'P':
             az = listed_command[1]
@@ -121,7 +121,7 @@ class RotCtl(threading.Thread):
             sock.sendall(self._error)
 
     def get_pos(self, sock: socket.socket):
-        pos = self.RC.actual_pos
+        pos = self.RC.actualPos
         sock.sendall(f"{format(pos[0], '.6f')}\n{format(pos[1], '.6f')}\n".encode('utf-8'))
 
     def set_pos(self, sock: socket.socket, az_str: str, el_str: str):

@@ -13,7 +13,10 @@ class SatelliteReceiver(object):
         ens = driver.encoder.set_up_encoder()
         self.h = driver.hBridge.HBridge()
         i2c = I2cHandler()
-        self.shaft = [Shaft(0, ens[0], self.h, i2c), Shaft(1, ens[1], self.h, i2c)]
+        offset = [i2c.get_magnetic_encoder(0).get_raw_angle(),
+                  i2c.get_magnetic_encoder(1).get_raw_angle()]
+        self.shaft = [Shaft(0, ens[0], self.h, i2c, offset[0]),
+                      Shaft(1, ens[1], self.h, i2c, offset[1])]
         self.sw = driver.switch.Switch()
 
     def stop(self):
@@ -25,12 +28,19 @@ class SatelliteReceiver(object):
         time.sleep(0.5)  # wait for motor encoder to stop
         GPIO.cleanup()
 
-    def get_pos(self) -> [int, int]:
-        motor_angle = [self.shaft[0].get_motor_angle(), self.shaft[1].get_motor_angle()]
+    def get_rec_pos(self) -> [int, int]:
+        """
+        :return: [azimuth, elevation]
+        """
         # TODO check if magnetic encoder
-        return motor_angle
+        shaft_angle = [self.shaft[0].get_motor_angle(), self.shaft[1].get_motor_angle()]
+        return [-shaft_angle[0] + shaft_angle[1], shaft_angle[0] + shaft_angle[1]]
 
     def move_dir(self, direction: interface.RotatorDir, speed):
+        if speed > 20:
+            speed = 20
+        if speed < 0:
+            speed = 0
         if direction == interface.RotatorDir.up:
             self.shaft[0].drive(driver.hBridge.MotorDir.clockwise, speed)
             self.shaft[1].drive(driver.hBridge.MotorDir.clockwise, speed)
@@ -45,7 +55,8 @@ class SatelliteReceiver(object):
             self.shaft[1].drive(driver.hBridge.MotorDir.counterclockwise, speed)
 
     def move_pos(self, pos: [int, int]):
-        desired_shaft_pos = self.convert_to_shaft_pos(pos)
+        # convert azimuth, elevation to shaft pos
+        desired_shaft_pos = [pos[0] - pos[1], pos[0] + pos[1]]
         motor_angle = [self.shaft[0].get_motor_angle(), self.shaft[1].get_motor_angle()]
         for idx, shaft in enumerate(self.shaft):
             distance = abs(motor_angle[idx] - desired_shaft_pos[idx])
@@ -55,31 +66,14 @@ class SatelliteReceiver(object):
                 speed = 1
                 if distance > 20:
                     speed = 20
-
                 if motor_angle[idx] < desired_shaft_pos[idx]:
                     shaft.drive(driver.hBridge.MotorDir.clockwise, speed)
                 else:
                     shaft.drive(driver.hBridge.MotorDir.anticlockwise, speed)
 
     def print_debug(self):
-        m_angle = [self.shaft[0].shaft_angle(), self.shaft[1].shaft_angle()]
-        encoder_pos = [self.shaft[0].get_motor_angle(), self.shaft[1].get_motor_angle()]
-        print(str(encoder_pos[0]) + "\t" +
-              str(m_angle[0]) + "\t" +
-              str(encoder_pos[1]) + "\t" +
-              str(m_angle[1]))
-
         # TODO test out with actual differential
-
-    def convert_to_coordinate(self) -> [int, int]:
-        """
-        :return: [azimuth, elevation]
-        """
-        pos = [self.shaft[0].shaft_angle(), self.shaft[1].shaft_angle()]
-        return [-pos[0] + pos[1], pos[0] + pos[1]]
-
-    def convert_to_shaft_pos(self, shaft_angle: [int, int]) -> [int, int]:
-        """
-        :return: [shaft0 angle, shaft1 angle]
-        """
-        return [shaft_angle[0] - shaft_angle[1], shaft_angle[0] + shaft_angle[1]]
+        print(str(self.shaft[0].get_motor_angle()) + "\t" +
+              str(self.shaft[0].get_shaft_angle()) + "\t" +
+              str(self.shaft[1].get_motor_angle()) + "\t" +
+              str(self.shaft[1].get_shaft_angle()))

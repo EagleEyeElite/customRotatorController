@@ -1,7 +1,6 @@
 import time
 import threading
 import interface
-
 from .SatelliteReceiver import SatelliteReceiver
 
 
@@ -21,13 +20,18 @@ class Controller(threading.Thread):
                 self.sRec.exit()
                 return
 
-            self.RC.actual_pos = self.sRec.get_pos()
+            if self.RC.error:
+                print("error occurred")
+                self.sRec.exit()
+                return
+
+            self.RC.actual_pos = self.sRec.get_rec_pos()
 
             if self.RC.state == interface.State.stop:
                 self.sRec.stop()
             elif self.RC.state == interface.State.move_to_dir:
                 speed = self.RC.speed
-                self.sRec.move_dir(self.RC.desired_direc, speed)
+                self.sRec.move_dir(self.RC.desired_direction, speed)
             elif self.RC.state == interface.State.move_to_pos:
                 self.sRec.move_pos(self.RC.desired_pos)
 

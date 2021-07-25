@@ -7,8 +7,6 @@ import Encoder
 from enum import IntEnum
 
 
-# TODO: maybe use: https://github.com/nstansby/rpi-rotary-encoder-python ?
-
 class EncoderPins(IntEnum):
     encoder0_m0 = 5
     encoder1_m0 = 6
