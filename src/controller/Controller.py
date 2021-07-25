@@ -1,10 +1,15 @@
 import time
 import threading
 import interface
+from logzero import logger
 from .SatelliteReceiver import SatelliteReceiver
 
 
 class Controller(threading.Thread):
+    """
+    The Controller executes the instructions given by the Configuration.
+    It also supervises the position and is responsible for the satellite receiver to not break itself.
+    """
     def __init__(self, RC: interface.Configuration):
         super().__init__()
         self.sRec = SatelliteReceiver()
@@ -15,13 +20,16 @@ class Controller(threading.Thread):
         self._stop_event.set()
 
     def run(self):
+        """
+        runs as a stoppable thread
+        """
         while True:
             if self._stop_event.is_set():
                 self.sRec.exit()
                 return
 
             if self.RC.error:
-                print("error occurred")
+                logger.info("error occurred")
                 self.sRec.exit()
                 return
 

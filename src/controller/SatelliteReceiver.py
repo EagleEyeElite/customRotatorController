@@ -1,5 +1,6 @@
 import time
 import RPi.GPIO as GPIO
+from logzero import logger
 
 from .I2cHandler import I2cHandler
 from .Shaft import Shaft
@@ -8,6 +9,12 @@ import interface
 
 
 class SatelliteReceiver(object):
+    """
+    This object reflect the satellite receiver.
+    It provides functions to move the rotator and readout all sensors.
+    For better abstraction the receiver is made up from 2 shafts.
+    The differential is driven by both shafts.
+    """
     def __init__(self):
         GPIO.setmode(GPIO.BCM)
         ens = driver.encoder.set_up_encoder()
@@ -32,7 +39,6 @@ class SatelliteReceiver(object):
         """
         :return: [azimuth, elevation]
         """
-        # TODO check if magnetic encoder
         shaft_angle = [self.shaft[0].get_motor_angle(), self.shaft[1].get_motor_angle()]
         return [-shaft_angle[0] + shaft_angle[1], shaft_angle[0] + shaft_angle[1]]
 
@@ -72,8 +78,7 @@ class SatelliteReceiver(object):
                     shaft.drive(driver.hBridge.MotorDir.anticlockwise, speed)
 
     def print_debug(self):
-        # TODO test out with actual differential
-        print(str(self.shaft[0].get_motor_angle()) + "\t" +
-              str(self.shaft[0].get_shaft_angle()) + "\t" +
-              str(self.shaft[1].get_motor_angle()) + "\t" +
-              str(self.shaft[1].get_shaft_angle()))
+        logger.info(str(self.shaft[0].get_motor_angle()) + "\t" +
+                    str(self.shaft[0].get_shaft_angle()) + "\t" +
+                    str(self.shaft[1].get_motor_angle()) + "\t" +
+                    str(self.shaft[1].get_shaft_angle()))

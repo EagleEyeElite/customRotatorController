@@ -19,7 +19,3 @@ class I2cHandler(object):
         if self._mul.channel != channel:
             self._mul.select_channel(channel)
         return self._mEnc[channel]
-
-    def check_connections(self):
-        # TODO, check if everything is connected
-        pass

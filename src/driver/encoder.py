@@ -1,5 +1,5 @@
 """
-includes functionality to monitor the motors encoders
+Includes functionality to monitor the motors encoders
 """
 
 import RPi.GPIO as GPIO

@@ -12,7 +12,7 @@ class RotCtl(threading.Thread):
     This class serves a rotctl API.
     """
 
-    def __init__(self, rc: Configuration):
+    def __init__(self, RC: Configuration):
         super().__init__()
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -22,7 +22,7 @@ class RotCtl(threading.Thread):
 
         self.selector = selectors.DefaultSelector()
         self.selector.register(server_socket, selectors.EVENT_READ)
-        self.RC = rc
+        self.RC = RC
 
         self._stop_event = threading.Event()
 
@@ -36,6 +36,10 @@ class RotCtl(threading.Thread):
         self.selector.close()
 
     def run(self):
+        """
+        Runs as a stoppable thread thread.
+        Handles all clients and requests.
+        """
         while True:
             if self._stop_event.is_set():
                 return
@@ -50,8 +54,7 @@ class RotCtl(threading.Thread):
                 except socket.error as e:
                     err = e.args[0]
                     if err != errno.EAGAIN and err != errno.EWOULDBLOCK:
-                        # a "real" error occurred
-                        print("shit, exit")
+                        logger.info("internet socket error")
                         sys.exit(1)
                     continue
 
@@ -64,6 +67,18 @@ class RotCtl(threading.Thread):
         self.selector.register(client_sock, selectors.EVENT_READ, data=addr)
 
     def service_client(self, sock: socket.socket, addr, request):
+        """
+        available commands:
+        Q|q, exit rotctl
+        P, set_pos 'Azimuth' 'Elevation'
+        p, get_pos
+        M, move 'Direction' 'Speed'
+        S, stop
+        K, park
+        R, reset 'Reset'
+        _, get_info
+        more info: http://manpages.ubuntu.com/manpages/trusty/man1/rotctl.1.html
+        """
         listed_command = request.split(' ')
 
         if not request or request == 'q\n':
@@ -89,14 +104,14 @@ class RotCtl(threading.Thread):
             self.move(sock, direc, speed)
             logger.info(f"MOVE request: DIR {direc}, Speed {speed}")
 
-        elif request == 'K\n':
-            self.set_pos(sock, "0", "0")
-            logger.info(f"PARK request: AZ {0}, EL {0}")
-
         elif request == 'S\n':
             self.RC.state = State.stop
             sock.sendall(self._confirm)
             logger.info(f"Stop request")
+
+        elif request == 'K\n':
+            self.set_pos(sock, "0", "0")
+            logger.info(f"PARK request: AZ {0}, EL {0}")
 
         elif listed_command[0] == 'R':
             reset_option = listed_command[1]
