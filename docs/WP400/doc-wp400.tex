@@ -7,8 +7,8 @@
 
 
 \newcommand{\st}{Official Documentation - WP400\\
-                 SIERRA BEEGND \\
-                 Project SatCom 2021}       % Kurzform des Titels
+	SIERRA BEEGND \\
+	Project SatCom 2021}       % Kurzform des Titels
 \newcommand{\nr}{SatCom-21-Doc-WP400}       % Dokumentennummer
 \newcommand{\ver}{0.1}                      % Version
 \newcommand{\dat}{\today}                   % Datum
@@ -23,28 +23,50 @@
 \newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
 \renewcommand\cftchapnumwidth{2.8em}
 \begin{document}
-\renewcommand{\thisauthor}{SatCom 2021}
-\input{title}
-
-\clearpage
-
-%%%% INHALT %%%%
-\pagenumbering{Roman}
-\addcontentsline{toc}{chapter}{Table of Contents}
-\tableofcontents
-
-
-\subpdfbookmark{Contents}{tables}
-\belowpdfbookmark{Contents}{toc}
-
-\clearpage
-\def\thechapter{\arabic{chapter}00}
-\setcounter{chapter}{3}
-\chapter{Portable Rotator Concept}
-\pagenumbering{arabic}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% your documentation here
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	\renewcommand{\thisauthor}{SatCom 2021}
+	\input{title}
+	
+	\clearpage
+	
+	%%%% INHALT %%%%
+	\pagenumbering{Roman}
+	\addcontentsline{toc}{chapter}{Table of Contents}
+	\tableofcontents
+	
+	
+	\subpdfbookmark{Contents}{tables}
+	\belowpdfbookmark{Contents}{toc}
+	
+	\clearpage
+	\def\thechapter{\arabic{chapter}00}
+	\setcounter{chapter}{3}
+	\chapter{Portable Rotator Concept}
+	\pagenumbering{arabic}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% your documentation here
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section*{Abstract}
+	\addcontentsline{toc}{section}{Abstract}
+	
+	Put a short description of the content of this report here.
+	
+	\section{Introduction}
+	Bla Bla Bla
+	\section{Project Planning}
+	hmmmmmmmmmm
+	\section{Project Work}
+	
+	
+	\include{electronics}
+	\include{code}
+	
+	
+	\section{Conclusion}
+	Summarize your project work here.
+	
+	\newpage
+	\listoffigures
+		
 \end{document}
