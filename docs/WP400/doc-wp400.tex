@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Space Rover Document
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\st}{Official Documentation - WP400\\
+                 SIERRA BEEGND \\
+                 Project SatCom 2021}       % Kurzform des Titels
+\newcommand{\nr}{SatCom-21-Doc-WP400}       % Dokumentennummer
+\newcommand{\ver}{0.1}                      % Version
+\newcommand{\dat}{\today}                   % Datum
+
+
+
+\input{"../texdata/format_en"}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\graphicspath{{../img/}{../texdata/}}    %% Suchpfad für Abbildungen
+\usepackage{tocloft}
+\usepackage{hyperref}
+\newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
+\renewcommand\cftchapnumwidth{2.8em}
+\begin{document}
+\renewcommand{\thisauthor}{SatCom 2021}
+\input{title}
+
+\clearpage
+
+%%%% INHALT %%%%
+\pagenumbering{Roman}
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+
+
+\subpdfbookmark{Contents}{tables}
+\belowpdfbookmark{Contents}{toc}
+
+\clearpage
+\def\thechapter{\arabic{chapter}00}
+\setcounter{chapter}{3}
+\chapter{Portable Rotator Concept}
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% your documentation here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

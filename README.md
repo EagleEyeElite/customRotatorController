@@ -1,6 +1,6 @@
 # Satellite Receiver
 
-<img src="documentation/art/beegnd_icon_tongue.png" alt="BEEGND IMG" height="100"/>
+<img src="docs/art/beegnd_icon_tongue.png" alt="BEEGND IMG" height="100"/>
 
 Student project: custom rotor design for portable ground station. \
 Members of this group:
@@ -8,12 +8,12 @@ Members of this group:
 - Prabhpreet S. Data (mechanics, prototype)
 - Nasser Mazraani (final design build)
 
-<img src="documentation/art/finalProduct.jpeg" alt="Satellite Receiver img" width="700"/>
+<img src="docs/art/finalProduct.jpeg" alt="Satellite Receiver img" width="700"/>
 
 ## PCB design
 The pcb is designed as a raspberry pi hat to drive the motors and sensors.\
-<img src="documentation/art/pcbSchematic.png" alt="Pcb Schematic" width="700"/>\
-<img src="documentation/art/PCB.png" alt="Pcb Image" width="700"/>
+<img src="docs/art/pcbSchematic.png" alt="Pcb Schematic" width="700"/>\
+<img src="docs/art/PCB.png" alt="Pcb Image" width="700"/>
 
 ## Code
 Main features:
@@ -28,4 +28,4 @@ multiplexer etc.
 For further information: ./src/README.md or ./documentation
 
 Code structure: \
-<img src="./documentation/art/SatelliteReceiver.png" alt="Code structure" width="700"/>
+<img src="./docs/art/SatelliteReceiver.png" alt="Code structure" width="700"/>

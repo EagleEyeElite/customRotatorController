@@ -1,0 +1,492 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Präambel
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\RequirePackage{pdf14}
+\newcommand{\hh}{20mm}                    %% Höhe der Kopfzeile
+\documentclass[
+draft=false,
+paper=A4,
+pagesize,
+headheight=\hh,
+DIV=15,
+BCOR=10mm,
+twoside=false,
+headinclude=true,
+footinclude=false,
+fontsize=12pt,
+numbers=autoenddot,
+toc=bibliography
+]{scrreprt}
+\usepackage[english]{babel}
+\usepackage[table]{xcolor}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{chngcntr}
+\counterwithout{table}{chapter}
+\usepackage{caption}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% % % INCREASING THE NUMBER OF POSSIBLE FLOATS... % %
+\usepackage{etex}
+\reserveinserts{36}
+\usepackage{morefloats}
+% % % INCREASING THE NUMBER OF POSSIBLE FLOATS... % %
+
+\usepackage[nomessages]{fp}
+\usepackage{lipsum}
+\usepackage{tocloft}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Schriftarten %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{mathptmx}                          %% serif      = Times
+\usepackage[scaled=.91]{helvet}                %% sans serif = Helvetica
+\usepackage{courier}                           %% typewriter = Courier
+\addtokomafont{disposition}{\rmfamily}         %% Änderung Überschriften-Font
+\addtokomafont{descriptionlabel}{\rmfamily}    %% Änderung Description-Font
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage[babel]{microtype}
+\usepackage{graphicx}
+\usepackage{arydshln}
+\usepackage[space]{grffile}
+%% \usepackage{epic, eepic}
+\usepackage{rotating}
+\usepackage{lastpage}
+\usepackage[numbers, sort]{natbib}
+\usepackage{csquotes}
+\usepackage[section,above,below]{placeins}
+\usepackage{amssymb,amsmath}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{tikz}
+
+% Randnotizen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{marginnote}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{ifthen}
+\renewcommand*{\raggedleftmarginnote}{\RaggedLeft}
+\renewcommand*{\raggedrightmarginnote}{\RaggedRight}
+\reversemarginpar
+\setlength{\marginparwidth}{1.75\marginparwidth}
+
+\newcommand{\mnote}[2][\empty]{%
+  \marginnote{%
+    \begin{spacing}{0.9}
+      \ifthenelse{\equal{#1}{\empty}} {} {\color{#1}}
+      \vspace{-\baselineskip}\vspace{-\parskip}\scriptsize\hspace{0pt}#2%
+    \end{spacing}
+  }
+}
+
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{arydshln}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% SONSTIGE AENDERUNGEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{datatool}
+% Define a convenient command to add a line
+% to the database
+\newcommand*{\addacronym}[2]{%
+	\DTLnewrow{acronyms}%
+	\DTLnewdbentry{acronyms}{Acronym}{#1}%
+	\DTLnewdbentry{acronyms}{Description}{#2}%
+}
+%% Pakage and command for inserting a blank page
+\usepackage{afterpage}
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+% Header and Footer (Style "TUB") %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[headsepline]{scrlayer-scrpage}
+
+
+\setkomafont{pageheadfoot}{\normalfont\mdseries\upshape}
+\setkomafont{pagenumber}{\normalfont\mdseries\upshape}
+
+\newlength{\A}
+\newlength{\B}
+\newlength{\C}
+\newlength{\D}
+\newlength{\E}
+\newlength{\F}
+\setlength{\C}{0.36\textwidth}
+\setlength{\A}{\hh}
+\setlength{\A}{1.10\A}
+\setlength{\B}{0.31\textwidth}
+\addtolength{\B}{-\A} 
+\setlength{\D}{0.11\textwidth}
+\setlength{\E}{0.22\textwidth}
+\setlength{\F}{\hh}
+\setlength{\F}{0.75\F}
+
+
+\newcommand{\thisauthor}{Name}
+\newpagestyle{TUB}
+{%% Kopfzeile
+  (\textwidth, 0pt)
+  {} {}
+  {%
+    \begin{minipage}[c][\hh]{\A}
+      \includegraphics[height=\F]{tuBerlinLogoSchwarz}
+    \end{minipage}%
+    \begin{minipage}[c][\hh]{\B}
+      \flushleft\scriptsize
+      \textsf{Institut f\"ur\\Luft- und Raumfahrt\\[4pt]
+        Fachgebiet\\Raumfahrttechnik}
+    \end{minipage}%
+    \begin{minipage}[c][\hh]{\C}
+      \centering\footnotesize\textbf\st
+    \end{minipage}%
+    \begin{minipage}[c][\hh]{\D}
+      \flushleft\footnotesize Document:\\Version:\\Date:\\Page:\\ Author:
+    \end{minipage}%
+    \begin{minipage}[c][\hh]{\E}%
+      \flushright\footnotesize\nr\\\ver\\\dat\\\pagemark\ / \pageref{LastPage}\\  \thisauthor%
+    \end{minipage}%
+  }
+  (\textwidth, .4pt)
+}
+{%% Footer
+  (\textwidth, 0pt)
+  {} {}
+  {\scriptsize \copyright Technische Universit\"at Berlin -- Chair of Space Technology\hfill}
+  (\textwidth, 0pt)
+}
+
+\pagestyle{TUB}
+\renewcommand{\chapterpagestyle}{TUB}
+\renewcommand{\chapterheadstartvskip}{}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+
+% Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{longtable}   % mehrseitige Tabellen
+\usepackage{booktabs}    % verschiedene Linien für Tabellen
+\usepackage{threeparttable}
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+%\usepackage[%
+%%parse-numbers = false,
+%%parse-units = false,
+%locale=DE,
+%%mode=math,
+%version-1-compatibility,
+%group-separator = {.},
+%group-digits = true,
+%group-minimum-digits = 4,
+%range-units=single,
+%range-phrase = {--},
+%retain-explicit-plus]{siunitx}
+%\DeclareSIUnit\year{a}
+%\DeclareSIUnit\byte{Byte}
+%\DeclareSIUnit\bit{bit}
+%\DeclareSIUnit\krad{\kilo\radian}
+%\DeclareSIUnit\mrad{\milli\radian}
+%\DeclareSIUnit\LSB{LSB}
+%\DeclareSIUnit\grms{GRMS}
+%\DeclareSIUnit\arcminute{arcmin}
+%\DeclareSIUnit\arcsecond{arcsec}
+%\DeclareSIUnit\degreeAlt{degree}
+%\DeclareSIUnit\kibi{kibi}
+%\DeclareSIUnit\mebi{mebi}
+%\newcommand{\SIdimensions}[2]{\SIlist[list-separator={x},list-final-separator={x},list-units=single]{#1}{#2}}
+
+
+% Kennzeichnung als Entwurf %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[firstpage]{draftwatermark}
+%\SetWatermarkText{Draft}
+%\SetWatermarkLightness{.9}
+
+
+% Silbentrennung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hyphenation{%
+BEESAT
+TUBIN
+TUBSAT
+wis-sen-schaft-lich
+INVAR-Ka-me-ra-hal-te-run-gen
+SEAR
+ROS
+}
+
+
+% Nummerierungen und Aufzählungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\alph{enumiii}}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{--}
+
+
+% Sonderzeichen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\grad}{\ensuremath{^\circ}} % Gradzeichen verwenden
+\usepackage{eurosym}
+
+
+% TODO notes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{todonotes}
+\usepackage{xargs}
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+   \def\@currentlabel{#2}%
+   \label{#1}\endgroup
+}
+\makeatother
+
+\newcounter{comment}
+\newcommandx*\comment[3][1=, 3=cmt:\thecomment]{
+  \refstepcounter{comment}%
+  {%
+    \setstretch{0.7}% spacing
+    \todo[inline]{\textbf{[\uppercase{#1}\thecomment]:}~#2}  \namedlabel{#3}{[#1\thecomment]}%
+  }
+
+%(#2_{#1},\ldots,#2_{#3})
+}
+%
+%\newcommand{\comment}[2][]{%
+  %% initials of the author (optional) + note in the margin
+  %\refstepcounter{comment}%
+  %{%
+    %\setstretch{0.7}% spacing
+    %\todo[inline]{%
+      %\textbf{[\uppercase{#1}\thecomment]:}~#2}%
+  %}
+%}
+
+
+% Randbedingungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\G}
+\newlength{\I}
+\newlength{\J}
+\newlength{\K}
+
+\newcommand{\Documents}[1]{\ifthenelse{\equal{#1}{}\OR\equal{#1}{--}}{--}{#1}}
+
+%\newcommand{\Randbedingung}[3]{%
+  %\settowidth{\I}{Nummer:}
+  %\settowidth{\J}{\qquad}
+  %\settowidth{\K}{Dokumente:}
+  %\addtolength{\I}{\J}
+  %\addtolength{\I}{-\K}
+  %\vspace{.75\baselineskip}\noindent\phantomsection\namedlabel{#1}{#1}%
+  %\begin{tabularx}{\textwidth}{@{}X@{}}
+    %\toprule
+    %Nummer:\qquad\textbf{{#1}}\\
+    %Dokumente:\hspace{\I}{\Dokumente{#3}}\\
+    %\cmidrule{1-1}
+    %{#2}\\
+    %\bottomrule
+  %\end{tabularx}%
+  %\vspace{.75\baselineskip}}%
+	
+\makeatletter
+\define@key{constraint}{Token}{\def\conacronym{#1}}
+\define@key{constraint}{Label}{\def\conlabel{#1}}
+\define@key{constraint}{Text}{\def\context{#1}}
+\define@key{constraint}{Documents}{\def\condocuments{#1}}
+\makeatother
+\setkeys{constraint}{Label=--,Text=--,Documents=--}
+
+\newcommand{\constraint}[1][]{%  
+	\setkeys{constraint}{#1}%
+	\refstepcounter{\conacronym_constraintcnt}%
+  \setlength{\G}{\textwidth}%
+  \settowidth{\I}{Number:}%
+  \settowidth{\J}{\qquad}%
+  \settowidth{\K}{Documents:}%
+  \addtolength{\I}{\J}%
+  \addtolength{\I}{-\K}%
+  \vspace{.75\baselineskip}\noindent\phantomsection\namedlabel{\conlabel}{\mbox{\conacronym-\!\padzeroes[3]{\decimal{\conacronym_constraintcnt}}}}%
+  \begin{tabularx}{\textwidth}{@{}X@{}}%
+    \toprule%
+    Number:\qquad\textbf{{\conacronym-\!\padzeroes[3]{\decimal{\conacronym_constraintcnt}}}}\\%
+    Documents:\hspace{\I}{\Documents{\condocuments}}\\%
+    \cmidrule{1-1}%
+    {\context}\\%
+    \bottomrule%
+  \end{tabularx}%
+  \vspace{.75\baselineskip}%
+	}%	
+
+
+% Anforderungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\makeatletter
+%\newcommand*\Herkunft[1]{%
+  %\ifthenelse{\equal{#1}{}\OR\equal{#1}{--}}{--}{%
+    %\@for\@tempa:=#1\do{%
+      %\hyperref[\@tempa]{\@tempa}\quad}}
+%}
+%\makeatother
+
+%\newcommand{\Anforderung}[4]{%
+  %\setlength{\G}{\textwidth}
+  %\settowidth{\I}{Nummer:}
+  %\settowidth{\J}{\qquad}
+  %\settowidth{\K}{Dokumente:}
+  %\addtolength{\I}{\J}
+  %\addtolength{\I}{-\K}
+  %\vspace{.75\baselineskip}\noindent\phantomsection\namedlabel{#1}{#1}%
+  %\begin{tabularx}{\textwidth}{@{}p{5.0cm}X@{}}
+    %\toprule
+    %Nummer:\qquad\textbf{{#1}}&Herkunft:\qquad{\Herkunft{#2}}\\
+    %\multicolumn{2}{@{}p{\G}@{}}{Dokumente:\hspace{\I}{\Dokumente{#4}}}\\
+    %\cmidrule{1-2}
+    %\multicolumn{2}{@{}p{\G}@{}}{{#3}}\\
+    %\bottomrule
+  %\end{tabularx}%
+  %\vspace{.75\baselineskip}}%
+
+%\usepackage{xkeyval}
+\usepackage{fmtcount}% http://ctan.org/pkg/fmtcount
+
+\makeatletter
+\newcommand*\origin[1]{%
+  \ifthenelse{\equal{#1}{}\OR\equal{#1}{--}}{--}{%
+    \@for\@tempa:=#1\do{%
+      \ref{\@tempa}\quad}}
+}
+\makeatother
+
+\makeatletter
+\define@key{requirement}{Token}{\def\reqacronym{#1}}
+\define@key{requirement}{Label}{\def\reqlabel{#1}}
+\define@key{requirement}{Origin}{\def\reqorigin{#1}}
+\define@key{requirement}{Text}{\def\reqtext{#1}}
+\define@key{requirement}{Documents}{\def\reqdocuments{#1}}
+\makeatother
+\setkeys{requirement}{Token=REQ,Label=--,Origin=--,Text=--,Documents=--}
+
+\newcommand{\requirement}[1][]{%  
+	\setkeys{requirement}{#1}
+	\refstepcounter{\reqacronym_requirementcnt}
+  \setlength{\G}{\textwidth}
+  \settowidth{\I}{Number:}
+  \settowidth{\J}{\qquad}
+  \settowidth{\K}{Documents:}
+  \addtolength{\I}{\J}
+  \addtolength{\I}{-\K}
+  \vspace{.75\baselineskip}\noindent\phantomsection\namedlabel{\reqlabel}{\mbox{\reqacronym-\!\padzeroes[3]{\decimal{\reqacronym_requirementcnt}}}}%
+  \begin{tabularx}{\textwidth}{@{}p{5.0cm}X@{}}
+    \toprule
+    Nummer:\qquad\textbf{{\reqacronym-\!\padzeroes[3]{\decimal{\reqacronym_requirementcnt}}}}&Herkunft:\qquad{\origin{\reqorigin}}\\
+    \multicolumn{2}{@{}p{\G}@{}}{Documents:\hspace{\I}{\Documents{\reqdocuments}}}\\
+    \cmidrule{1-2}
+    \multicolumn{2}{@{}p{\G}@{}}{{\reqtext}}\\
+    \bottomrule
+  \end{tabularx}%
+  \vspace{.75\baselineskip}
+	}%
+
+
+
+% hyperref.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdfa, final]{hyperref}
+%% \PassOptionsToPackage{pdfa}{hyperref}
+\else
+\usepackage[pdfa, dvipdfmx, final]{hyperref}
+%% \PassOptionsToPackage{pdfa, dvipdfmx}{hyperref}
+\fi
+
+%% \usepackage[a-1b]{pdfx}   %% pdfx.sty lädt hyperref.sty
+%% \Title{\st}
+%% \Subject{Technischer Bericht}
+%% \Author{TU Berlin}
+%% \Keywords{TUBIN}
+
+\hypersetup{bookmarksnumbered=true}
+\hypersetup{breaklinks=true}
+\hypersetup{colorlinks=true}
+\hypersetup{linkcolor=blue}
+\hypersetup{anchorcolor=blue}
+\hypersetup{citecolor=blue}
+\hypersetup{filecolor=blue}
+\hypersetup{menucolor=blue}
+\hypersetup{runcolor=blue}
+\hypersetup{urlcolor=blue}
+%% \hypersetup{pdfstartview=FitH}
+\hypersetup{pdftitle={SIERRA WPD}}
+\hypersetup{pdfsubject={Technical Note}}
+\hypersetup{pdfauthor={TU Berlin}}
+\hypersetup{pdfkeywords={SIERRA, Space, Amateur Radio, Planetary Rover}}
+\hypersetup{pdflang=de-DE-1996}
+\urlstyle{same}
+%%\usepackage{breakurl}
+
+
+% Referenzierung von Missionszielen, Randbedingungen, Anforderungen:
+\newcommand{\aref}[1]{\hyperref[#1]{#1}}
+
+
+% nur ein Durchlauf anstatt zwei für Package "hyperref.sty"
+%\usepackage[final]{bookmark}
+
+
+% level des TOC beschrnken
+\setcounter{tocdepth}{1}
+
+
+% Package "ellipsis.sty" muss nach "hyperref.sty" geladen werden (siehe README)
+\usepackage[xspace]{ellipsis}
+
+
+% Abkürzungsverzeichnis und Glossar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package "glossaries.sty" muss nach "hyperref.sty" geladen werden
+
+\usepackage[acronym, shortcuts]{glossaries}
+\renewcommand*{\glspostdescription}{}  %% Punkt am Ende deaktivieren
+
+% Zeilenabstände verkleinern
+\renewcommand\glossarypreamble{\markboth{\glossaryname}{\glossaryname}}
+%%\setlength{\glsdescwidth}{\linewidth}
+%%\addtolength{\glsdescwidth}{-\glsdescwidth}
+%%\setlength{\glspagelistwidth}{\textwidth}
+\renewcommand{\glsnamefont}[1]{\textrm{#1}}
+\makeglossaries
+
+% PDF Version 5 verwenden  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% damit PDFs mit Ver. 5 eingebunden werden können
+
+\pdfoptionpdfminorversion=5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{3}
+
