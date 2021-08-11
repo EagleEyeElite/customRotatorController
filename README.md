@@ -8,6 +8,8 @@ Members of this group:
 - Prabhpreet S. Data (mechanics, prototype)
 - Nasser Mazraani (final design build)
 
+
+<img src="docs/art/groupPicture.jpg" alt="Satcom Group img" width="700"/>\
 <img src="docs/art/finalProduct.jpeg" alt="Satellite Receiver img" width="700"/>
 
 ## PCB design
