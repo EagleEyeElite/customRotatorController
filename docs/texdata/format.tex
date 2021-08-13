@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Präambel
+% PrÃ¤ambel
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\hh}{20mm}                    %% Höhe der Kopfzeile
+\newcommand{\hh}{20mm}                    %% HÃ¶he der Kopfzeile
 
 \documentclass[
 draft=false,
@@ -27,8 +27,8 @@ toc=bibliography
 \usepackage{mathptmx}                          %% serif      = Times
 \usepackage[scaled=.91]{helvet}                %% sans serif = Helvetica
 \usepackage{courier}                           %% typewriter = Courier
-\addtokomafont{disposition}{\rmfamily}         %% Änderung Überschriften-Font
-\addtokomafont{descriptionlabel}{\rmfamily}    %% Änderung Description-Font
+\addtokomafont{disposition}{\rmfamily}         %% Ã„nderung Ãœberschriften-Font
+\addtokomafont{descriptionlabel}{\rmfamily}    %% Ã„nderung Description-Font
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -76,7 +76,7 @@ toc=bibliography
 }
 
 
-% Kopf- und Fußzeile (Style "TUB") %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kopf- und FuÃŸzeile (Style "TUB") %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[headsepline]{scrlayer-scrpage}
 
@@ -109,7 +109,7 @@ toc=bibliography
     \end{minipage}%
     \begin{minipage}[c][\hh]{\B}
       \flushleft\scriptsize
-      \textsf{Institut für\\Luft- und Raumfahrt\\[4pt]
+      \textsf{Institut fÃ¼r\\Luft- und Raumfahrt\\[4pt]
         Fachgebiet\\Raumfahrttechnik}
     \end{minipage}%
     \begin{minipage}[c][\hh]{\C}
@@ -124,10 +124,10 @@ toc=bibliography
   }
   (\textwidth, .4pt)
 }
-{%% Fußzeile
+{%% FuÃŸzeile
   (\textwidth, 0pt)
   {} {}
-  {\scriptsize© TU Berlin -- Small Exploration Assistant Rover\hfill}
+  {\scriptsizeÂ© TU Berlin -- Small Exploration Assistant Rover\hfill}
   (\textwidth, 0pt)
 }
 
@@ -143,7 +143,7 @@ toc=bibliography
 \usepackage{multirow}
 \usepackage{tabularx}
 %% \usepackage{longtable}   % mehrseitige Tabellen
-\usepackage{booktabs}    % verschiedene Linien für Tabellen
+\usepackage{booktabs}    % verschiedene Linien fÃ¼r Tabellen
 \usepackage{threeparttable}
 \newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
 
@@ -194,7 +194,7 @@ ROS
 }
 
 
-% Nummerierungen und Aufzählungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Nummerierungen und AufzÃ¤hlungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
@@ -395,7 +395,7 @@ ROS
 %% \PassOptionsToPackage{pdfa, dvipdfmx}{hyperref}
 \fi
 
-%% \usepackage[a-1b]{pdfx}   %% pdfx.sty lädt hyperref.sty
+%% \usepackage[a-1b]{pdfx}   %% pdfx.sty lÃ¤dt hyperref.sty
 %% \Title{\st}
 %% \Subject{Technischer Bericht}
 %% \Author{TU Berlin}
@@ -425,11 +425,11 @@ ROS
 \newcommand{\aref}[1]{\hyperref[#1]{#1}}
 
 
-% nur ein Durchlauf anstatt zwei für Package "hyperref.sty"
+% nur ein Durchlauf anstatt zwei fÃ¼r Package "hyperref.sty"
 %\usepackage[final]{bookmark}
 
 
-% level des TOC beschrŠnken
+% level des TOC beschrÂŠnken
 \setcounter{tocdepth}{1}
 
 
@@ -437,13 +437,13 @@ ROS
 \usepackage[xspace]{ellipsis}
 
 
-% Abkürzungsverzeichnis und Glossar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AbkÃ¼rzungsverzeichnis und Glossar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Package "glossaries.sty" muss nach "hyperref.sty" geladen werden
 
 \usepackage[acronym, shortcuts]{glossaries}
 \renewcommand*{\glspostdescription}{}  %% Punkt am Ende deaktivieren
 
-% Zeilenabstände verkleinern
+% ZeilenabstÃ¤nde verkleinern
 \renewcommand\glossarypreamble{\markboth{\glossaryname}{\glossaryname}}
 %%\setlength{\glsdescwidth}{\linewidth}
 %%\addtolength{\glsdescwidth}{-\glsdescwidth}
@@ -452,7 +452,7 @@ ROS
 \makeglossaries
 
 % PDF Version 5 verwenden  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% damit PDFs mit Ver. 5 eingebunden werden können
+% damit PDFs mit Ver. 5 eingebunden werden kÃ¶nnen
 
 \pdfoptionpdfminorversion=5
 
