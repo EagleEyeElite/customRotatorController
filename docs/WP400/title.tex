@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Titelseiten
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\belowpdfbookmark{Title}{titlepage}
+
+\begin{titlepage}
+  \begin{tikzpicture}[
+  remember picture,
+  overlay
+  ]
+  \node [anchor = north west] at ([xshift = +10mm, yshift = -10mm]current page.north west) {
+    \includegraphics[height = 20mm]{tuBerlinLogoSchwarz.pdf}
+  };
+  \end{tikzpicture}
+  \begin{tikzpicture}[
+  remember picture,
+  overlay
+  ]
+  \node [anchor = north ] at ([xshift = +7 mm, yshift = -10mm]current page.north) {
+    \includegraphics[height = 90mm]{sierra_r4.pdf}
+  };
+  \end{tikzpicture}
+  \begin{center}
+    \hspace{0pt}\vfill
+
+    %\large Space Interdisciplinary Engineering in Radio and Robotic Applications \\ \hspace{0pt}
+
+    \huge\textbf{Official Documentation} \\ \vspace{20pt}
+
+    \large{Berlin Experimental and Educational Ground Station}
+
+    \vfill
+
+    \normalfont\normalsize Document: \nr \\
+    Version: \ver\\
+    Date: \dat
+
+    \vfill
+
+    %\includegraphics[height=\hh]{../../global_references/tuBerlinLogoRot}
+    %\includegraphics[height=\hh]{../../global_references/tuBerlinLogoSchwarz}
+
+    \normalfont\normalsize \hspace{0pt}\\
+    Technische Universit\"at Berlin\\
+    Department of Aeronautics and Astronautics\\
+    Chair of Space Technology\\
+    Office F 6\\
+    Marchstraße 12--14\\
+    10587 Berlin
+
+    Tel.: 030 / 314-21305\\
+    Fax: 030 / 314-21306
+  \end{center}
+\end{titlepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+  \begin{center}
+    \textbf{\huge{Technical Note}\\\hspace{0pt}}
+    %\textbf{\large{This is an mple headline}\\\hspace{0pt}}
+    
+    \ \\
+    \ \\
+    \textbf{Version History\\\hspace{0pt}}
+    
+    \begin{tabular*}{\textwidth}
+      {%
+        @{}p{0.1\textwidth}
+        p{0.15\textwidth}
+        p{0.35\textwidth}
+        p{0.3\textwidth}@{}
+      }
+      \toprule
+      Version & Date & Changes & Processor \\
+      \midrule
+      0.1 & 2021-07-05 & Document creation  & Alexis Cabana-Loriaux \\
+      \bottomrule
+    \end{tabular*}%
+    \vspace{1cm}
+    \begin{tabular*}{\textwidth}
+      {%
+        @{}p{0.1\textwidth}
+        p{0.15\textwidth}
+        p{0.35\textwidth}
+        p{0.3\textwidth}@{}
+      }
+      \toprule
+      Version & Date & Sections & Author \\
+      \midrule
+      0.1 & 2021-08-13 & 1/2/3.1.1/3.1.4  & Nasser Mazraani \\
+      \midrule
+      0.1 & 2021-08-13 & 3.1.2/3.1.3/3.1.4  & Prabhpreet S. Data \\
+       \midrule
+      0.1 & 2021-08-13 & 3.2/3.3  & Conrad Klaus \\
+      \bottomrule
+    \end{tabular*}%
+    
+    \vfill
+    
+    \thispagestyle{TUB}
+    
+    \pagebreak
+    
+     
+    
+    
+    
+    
+  \vfill
+
+     \end{center}%
+  \thispagestyle{TUB}%
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

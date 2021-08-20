@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Space Rover Document
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\st}{Official Documentation - WP400\\
+	SIERRA BEEGND \\
+	Project SatCom 2021}       % Kurzform des Titels
+\newcommand{\nr}{SatCom-21-Doc-WP400}       % Dokumentennummer
+\newcommand{\ver}{0.1}                      % Version
+\newcommand{\dat}{\today}                   % Datum
+
+
+
+\input{"../texdata/format_en"}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\graphicspath{{../img/}{../texdata/}}    %% Suchpfad für Abbildungen
+\usepackage{tocloft}
+\usepackage{hyperref}
+\newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
+\renewcommand\cftchapnumwidth{2.8em}
+\begin{document}
+	\renewcommand{\thisauthor}{SatCom 2021}
+	\input{title}
+	
+	\clearpage
+	
+	%%%% INHALT %%%%
+	\pagenumbering{Roman}
+	\addcontentsline{toc}{chapter}{Table of Contents}
+	\tableofcontents
+	\newpage
+	\listoffigures
+	
+	\subpdfbookmark{Contents}{tables}
+	\belowpdfbookmark{Contents}{toc}
+	
+	\clearpage
+	\def\thechapter{\arabic{chapter}00}
+	\setcounter{chapter}{3}
+	\chapter{Portable Rotator Concept}
+	\pagenumbering{arabic}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% your documentation here
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section*{Abstract}
+	\addcontentsline{toc}{section}{Abstract}
+	
+	This report demonstrates an overview of the planning process and work carried out throughout the semester by the team to design and build a new antenna rotator concept.
+	
+	\section{Introduction}
+Various rotators are available and used in controlling the attitude of different types of antennas. For this project the motivation is to develop a new concept to be used with a portable station and able to track satellites, and to achieve this it is designed to move in both azimuth and elevation directions. To meet the requirements, the rotator is characterized by being low cost and based on commercial off-the-shelf parts to compete with available models on the market. \\
+The idea is to have a transportable and remotely controllable rotator to test the signal strength of telemetry data that is received in different locations from satellites in a low earth orbits.\\
+This concept can be replicated by other interested individuals and is open for improvements. \\
+The sections of the report are divided into mechanical and electronic design of the product and covers its calibration and testing plan.
+
+	\section{Project Planning}
+	\input{planning}
+	
+	\section{Project Work}
+	
+	\subsection{Mechancial}
+	\input{Rotator head}
+	\input{Weather shield}
+    \input{Mount interface}	
+    \input{Counter weights}
+	
+	
+	\include{electronics}
+	\include{code}
+	
+	
+	\section{Conclusion}
+	We enjoyed working on the project and learned a lot. The rotator is great to play around and see it in action. It's not yet in a state, where you can put it anywhere and expect it to work perfectly. If you just want to have something working, that you don't have to worry about and fix from time to time, we recommend using an off the shelf rotator.
+	
+	\chapter{Appendix}
+	\input{appendix.tex}
+	\newpage
+	
+\bibliographystyle{alpha}
+\bibliography{sample}
+\input{biblo}
+
+
+\end{document}

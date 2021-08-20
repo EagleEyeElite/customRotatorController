@@ -1,0 +1,15 @@
+# tex
+**.log
+**.aux
+**.out
+**.toc
+**.nav
+**.snm
+**.ist
+**.glo
+**.acn
+**.gz
+**.bbl
+**.blg
+**.pdf
+**.lof
